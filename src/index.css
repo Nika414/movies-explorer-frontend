@@ -3,3 +3,17 @@
 @import url(./vendor/fonts/suisseIntl.css);
 @import url(./vendor/variables.css);
 @import url(./root.css);
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+@import url(./components/Promo/Promo.css);
+@import url(./components/Navigation/Navigation.css);
+@import url(./components/NavTab/NavTab.css);
+@import url(./components/AboutProject/AboutProject.css);
