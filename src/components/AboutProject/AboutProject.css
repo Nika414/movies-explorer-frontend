@@ -1,7 +1,6 @@
 .about-project {
     display: flex;
     flex-direction: column;
-
 }
 
 .about-project__title {

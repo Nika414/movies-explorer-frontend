@@ -1,0 +1,76 @@
+.about-me {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__title {
+    margin: 110px 70px 0 70px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid black;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+
+.about-me__student-photo {
+    width: 270px;
+    height: 327px;
+    border-radius: 10px;
+    background: url(../../images/avatar.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+}
+
+.about-me__student_container {
+    display: flex;
+    flex-direction: row;
+    margin: 66px 70px 100px 70px;
+    justify-content: space-between;
+}
+
+.about-me__student-name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0 0 18px 0;
+}
+
+.about-me__student-short-about {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #000000;
+    mix-blend-mode: normal;
+    margin: 0;
+    
+}
+
+.about-me__student-about {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+    mix-blend-mode: normal;
+    max-width: 600px;
+    margin: 26px 0 66px 0;
+}
+
+.about-me__student {
+    margin: 0;
+}
+
+.about-me__student-github {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}

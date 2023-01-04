@@ -1,0 +1,37 @@
+.portfolio__span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #A0A0A0;
+    mix-blend-mode: normal;
+    margin: 0 0 50px 70px;
+}
+
+.portfolio__container {
+    margin: 30px 70px 125px 70px;
+    padding: 0;
+}
+
+.portfolio__option {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    list-style-type: none;
+    padding: 20px 0 19px 0;
+    border-bottom: 1px solid #E8E8E8;
+    position: relative;
+}
+
+.portfolio__link {
+    min-width: 80%;
+}
+
+.portfolio__arrow {
+    position: absolute;
+    right: 0;
+    bottom: 29px;
+}

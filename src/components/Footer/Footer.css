@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer__container {
+    display: flex;
+    margin: 20px 70px 20px 70px;
+    justify-content: space-between;
+}
+.footer__span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #A0A0A0;
+    margin: 79px 70px 0 70px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.footer__praktikum {
+    margin-right: 20px;
+}
