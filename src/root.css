@@ -1,0 +1,8 @@
+.root {
+  background-color: red;
+  font-family: var(--font-family), Arial, sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  color: var(--color-text);
+  margin: 0;
+}
