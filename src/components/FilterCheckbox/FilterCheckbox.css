@@ -1,0 +1,45 @@
+.filter-checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+.filter-checkbox__input {
+    display: none;
+}
+
+.form-checkbox__input:checked+.form-checkbox__customized-checkbox {
+    background-image: url(../../images/tumb__COLOR_tumbler-on.svg);
+}
+
+.filter-checkbox__input:checked+.form-checkbox__customized-checkbox::before {
+    transform: translate(16px);
+    transition: all 0.5s;
+}
+
+
+
+.form-checkbox__customized-checkbox {
+    display: inline-block;
+    background-image: url(../../images/tumb__COLOR_tumbler-3.svg);
+    width: 36px;
+    height: 20px;
+    border: none;
+    position: relative;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.form-checkbox__customized-checkbox::before {
+    content: url(../../images/tumb__COLOR_tumbler-off.svg);
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+}
+
+.filter-checkbox__label {
+    display: block;
+    height: 20px;
+    padding: 10px 10px 10px 20px;
+}

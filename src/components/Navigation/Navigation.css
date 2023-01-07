@@ -1,31 +1,26 @@
-.navigation {
-    min-height: 74px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    background-color: var(--color-pink);
-    border: none;
-}
-
 .navigation__logo {
     width: 38px;
     height: 38px;
     margin: 18px 70px;
 }
 
-.navigation__button {
-    text-decoration: none;
-    list-style-type: none;
+.navigation__wrapper {
     margin-right: 30px;
     padding: 0;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;  
     display: flex;
     align-items: center;
-    
     color: #000000;
+}
+
+.navigation__button {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    display: flex;
 }
 
 .navigation__button_login {
@@ -42,6 +37,24 @@
     margin: 21px 0;
 }
 
-.navigation__button_login a {
-    color: white;
+.navigation__button_account-img {
+    padding-left: 23px;
+    margin-bottom: 2px;
+    align-self: flex-end;
+}
+
+.navigation__button_loggedin {
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 18px;
+text-align: right;
+color: #000000;
+}
+.navigation__button_account {
+    margin-right: 50px;
+}
+
+.navigation__button_saved-movies {
+    font-weight: 400;
 }

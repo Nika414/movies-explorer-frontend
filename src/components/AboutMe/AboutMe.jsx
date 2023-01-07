@@ -1,6 +1,8 @@
-export default function AboutMe() {
+import { forwardRef } from 'react';
+
+function AboutMe(props, ref) {
   return (
-    <div className="about-me">
+    <div className="about-me" ref={ref}>
       <h2 className="about-me__title">Студент</h2>
       <div className="about-me__student_container">
         <div className="about-me__student">
@@ -18,3 +20,5 @@ export default function AboutMe() {
     </div>
   );
 }
+
+export default forwardRef(AboutMe);

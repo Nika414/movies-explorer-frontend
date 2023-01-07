@@ -10,9 +10,16 @@ a {
 }
 
 a:hover {
+    opacity: 0.7;
     cursor: pointer;
 }
 
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+@import url(./components/Header/Header.css);
 @import url(./components/Promo/Promo.css);
 @import url(./components/Navigation/Navigation.css);
 @import url(./components/NavTab/NavTab.css);
@@ -21,3 +28,5 @@ a:hover {
 @import url(./components/AboutMe/AboutMe.css);
 @import url(./components/Portfolio/Portfolio.css);
 @import url(./components/Footer/Footer.css);
+@import url(./components/SearchForm/SearchForm.css);
+@import url(./components/FilterCheckbox/FilterCheckbox.css);

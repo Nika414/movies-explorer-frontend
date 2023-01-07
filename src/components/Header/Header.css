@@ -1,0 +1,13 @@
+.header {
+    min-height: 74px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--color-pink);
+    border: none;
+}
+
+.header_authorized {
+    background-color: white;
+}

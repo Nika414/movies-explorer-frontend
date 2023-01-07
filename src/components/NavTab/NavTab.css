@@ -15,6 +15,7 @@
 }
 
 .nav-tub_link {
+    background-color: inherit;
     text-decoration: underline;
     color: white;
     font-weight: 500;
@@ -25,4 +26,5 @@
     text-decoration-line: underline;
     color: #FFFFFF;
     margin-right: 40px;
+    cursor: pointer;
 }

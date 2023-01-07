@@ -1,0 +1,41 @@
+.search-form {
+    margin: 80px 70px 100px 70px;
+    width: 89%;
+}
+
+.search-form__input {
+    width: 93%;
+    background: #F9F9F9;
+    border-radius: 4px;
+    min-height: 48px;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-form__input::placeholder {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #A0A0A0;
+    padding: 15px 0 15px 22px;
+}
+
+
+.search-form__button {
+    color: white;
+    background: #000000;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+    width: 6.12%;
+    min-height: 48px;
+    margin: 0;
+    margin-left: 10px;
+    border: none;
+    padding: 0;
+}

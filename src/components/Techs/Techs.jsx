@@ -1,6 +1,8 @@
-export default function Techs() {
+import { forwardRef } from 'react';
+
+function Techs(props, ref) {
   return (
-    <div className="techs">
+    <div className="techs" ref={ref}>
       <h2 className="techs__title">Технологии</h2>
       <span className="techs__techs">7 технологий</span>
       <p className="techs__techs_text">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
@@ -16,3 +18,5 @@ export default function Techs() {
     </div>
   );
 }
+
+export default forwardRef(Techs);
