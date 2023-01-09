@@ -8,6 +8,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -19,6 +20,9 @@ function App() {
       <Switch>
         <Route exact path="/sign-up">
           <Register />
+        </Route>
+        <Route exact path="/sign-in">
+          <Login />
         </Route>
         <Route exact path="/">
           <Main />

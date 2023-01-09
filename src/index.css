@@ -33,4 +33,7 @@ button:hover {
 @import url(./components/MoviesCardList/MoviesCardList.css);
 @import url(./components/MoviesCard/MoviesCard.css);
 @import url(./components/ShowMoreButton/ShowMoreButton.css);
+@import url(./components/Auth/Auth.css);
+@import url(./components/AuthForm/AuthForm.css);
 @import url(./components/Register/Register.css);
+@import url(./components/Login/Login.css);

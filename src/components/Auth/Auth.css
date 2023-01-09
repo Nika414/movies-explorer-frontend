@@ -1,0 +1,27 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 442px 70px 442px;
+    width: 396px;
+}
+
+.auth__title {
+    margin: 0;
+    margin-bottom: 40px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+
+.auth__span {
+    width: 100%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #A0A0A0;
+    margin: 0;
+}
