@@ -1,13 +1,15 @@
+import { Link } from 'react-router-dom';
+
 export default function Navigation({ loggedIn, location }) {
   return (
     <nav>
-      {loggedIn && location === '/movies' ? (
+      {loggedIn && location !== '/' ? (
         <ul className="navigation__list">
           <li className="navigation__wrapper">
-            <button type="button" className="navigation__button navigation__button_loggedin navigation__button_movies">Фильмы</button>
+            <button type="button" className="navigation__button navigation__button_loggedin navigation__button_movies"><Link to="/movies">Фильмы</Link></button>
           </li>
           <li className="navigation__wrapper">
-            <button type="button" className="navigation__button navigation__button_loggedin navigation__button_saved-movies">Сохраненные фильмы</button>
+            <button type="button" className="navigation__button navigation__button_loggedin navigation__button_saved-movies"><Link to="/saved-movies">Сохраненные фильмы</Link></button>
           </li>
           <li className="navigation__wrapper">
             <button type="button" className="navigation__button navigation__button_loggedin navigation__button_account">
@@ -22,7 +24,7 @@ export default function Navigation({ loggedIn, location }) {
         </ul>
       ) : (
         <ul className="navigation__list">
-          <li className="navigation__wrapper"><button type="button" className="navigation__button navigation__button_registration">Регистрация</button></li>
+          <li className="navigation__wrapper"><button type="button" className="navigation__button navigation__button_registration"><Link to="/sign-up">Регистрация</Link></button></li>
           <li className="navigation__wrapper"><button type="button" className="navigation__button navigation__button_login">Войти</button></li>
         </ul>
       )}

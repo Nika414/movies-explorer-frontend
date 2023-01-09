@@ -1,0 +1,22 @@
+.show-more-button__container {
+    display: flex;
+    justify-content: center;
+}
+
+.show-more-button {
+    width: 25%;
+    height: 36px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #000000;
+    background: white;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+    margin-bottom: 80px;
+}

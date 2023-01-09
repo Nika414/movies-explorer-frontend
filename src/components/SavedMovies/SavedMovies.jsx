@@ -1,9 +1,9 @@
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import SearchForm from '../SearchForm/SearchForm';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 
-export default function Movies() {
+export default function SavedMovies() {
   return (
     <>
       <SearchForm />

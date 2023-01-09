@@ -8,6 +8,19 @@
     border: none;
 }
 
-.header_authorized {
+.header__location_authorized {
     background-color: white;
+}
+
+.header__logo {
+    width: 38px;
+    height: 38px;
+    margin: 18px 70px;
+}
+
+.header__logo_location_auth {
+    width: 396px;
+    padding-right: calc(396px - 38px);
+    box-sizing: border-box;
+    margin: 70px auto 0 442px;
 }

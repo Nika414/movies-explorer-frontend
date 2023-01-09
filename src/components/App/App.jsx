@@ -6,6 +6,8 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import Register from '../Register/Register';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -15,14 +17,20 @@ function App() {
     <div className="App">
       <Header loggedIn={loggedIn} location={location.pathname} />
       <Switch>
+        <Route exact path="/sign-up">
+          <Register />
+        </Route>
         <Route exact path="/">
           <Main />
         </Route>
         <ProtectedRoute exact path="/movies" loggedIn={loggedIn}>
           <Movies />
         </ProtectedRoute>
+        <ProtectedRoute exact path="/saved-movies" loggedIn={loggedIn}>
+          <SavedMovies />
+        </ProtectedRoute>
       </Switch>
-      <Footer />
+      {(location.pathname !== '/sign-up' && location.pathname !== '/sign-in') && (<Footer />)}
     </div>
   );
 }
