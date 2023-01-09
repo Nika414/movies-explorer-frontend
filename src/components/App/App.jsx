@@ -9,6 +9,7 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Profile from '../Profile/Profile';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -33,8 +34,11 @@ function App() {
         <ProtectedRoute exact path="/saved-movies" loggedIn={loggedIn}>
           <SavedMovies />
         </ProtectedRoute>
+        <ProtectedRoute exact path="/profile" loggedIn={loggedIn}>
+          <Profile />
+        </ProtectedRoute>
       </Switch>
-      {(location.pathname !== '/sign-up' && location.pathname !== '/sign-in') && (<Footer />)}
+      {(location.pathname !== '/sign-up' && location.pathname !== '/sign-in' && location.pathname !== '/profile') && (<Footer />)}
     </div>
   );
 }
