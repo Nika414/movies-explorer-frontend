@@ -89,3 +89,48 @@
 .about-project__timing-container:last-of-type {
     margin-bottom: 96px;
 }
+
+@media screen and (max-width:768px) {
+    .about-project__title {
+        margin: 90px 70px 0 50px;
+    }
+
+    .about-project__container {
+        padding: 70px 50px 0 50px;
+    }
+
+    .about-project__text {
+        font-size: 12px;
+        line-height: 18px;
+        margin-top: 22px;
+    }
+
+    .about-project__text-container {
+        max-width: 319px;
+        margin: 0 30px 93px 0;
+    }
+
+    .about-project__timing-container {
+        margin: 0 50px;
+    }
+
+    .about-project__backend {
+        width: 20.9%;
+    }
+
+    .about-project__frontend {
+        width: 79.1%;
+    }
+
+    .about-project__title-backend {
+        width: 20.9%;
+    }
+
+    .about-project__title-frontend {
+        width: 79.1%;
+    }
+
+    .about-project__timing-container:last-of-type {
+        margin-bottom: 90px;
+    }
+}

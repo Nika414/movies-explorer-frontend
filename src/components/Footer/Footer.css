@@ -8,7 +8,13 @@
     display: flex;
     margin: 20px 70px 20px 70px;
     justify-content: space-between;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: right;
+    color: #000000;
 }
+
 .footer__span {
     font-style: normal;
     font-weight: 400;
@@ -23,4 +29,11 @@
 
 .footer__praktikum {
     margin-right: 20px;
+}
+
+
+@media screen and (max-width:768px) {
+    .footer__span {
+        margin: 79px 30px 0 30px;
+    }
 }

@@ -62,3 +62,32 @@
     border-radius: 10px;
     width: 90px;
 }
+
+@media screen and (max-width:768px) {
+    .techs__title {
+        margin: 90px 50px 0 50px;
+    }
+
+    .techs__techs {
+        margin: 80px auto 22px auto;
+    }
+
+    .techs__techs_text {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0 auto 83px auto;
+    }
+
+    .techs__techs-container {
+        max-width: 648px;
+        margin: 0 auto 90px auto;
+    }
+
+    .techs__techs_name {
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        letter-spacing: -0.04em;
+        width: 84px;
+    }
+}

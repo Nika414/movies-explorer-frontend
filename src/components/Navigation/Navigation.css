@@ -1,11 +1,12 @@
-
-
 .navigation__wrapper {
     margin-right: 30px;
     padding: 0;
     display: flex;
     align-items: center;
     color: #000000;
+}
+.navigation__wrapper:last-of-type {
+    margin: 0;
 }
 
 .navigation__button {
@@ -17,6 +18,7 @@
     border: none;
     background-color: inherit;
     display: flex;
+    color: #000000;
 }
 
 .navigation__button_login {
@@ -40,17 +42,29 @@
 }
 
 .navigation__button_loggedin {
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 18px;
-text-align: right;
-color: #000000;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    color: #000000;
 }
+
 .navigation__button_account {
     margin-right: 50px;
 }
 
 .navigation__button_saved-movies {
     font-weight: 400;
+}
+
+.navigation__list_place_movies {
+    margin: 28px 0;
+}
+
+@media screen and (max-width:768px) {
+    .navigation__button_login {
+        margin-right: 30px;
+    }
+    
 }

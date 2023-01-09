@@ -4,7 +4,7 @@ export default function Navigation({ loggedIn, location }) {
   return (
     <nav>
       {loggedIn && location !== '/' ? (
-        <ul className="navigation__list">
+        <ul className="navigation__list navigation__list_place_movies">
           <li className="navigation__wrapper">
             <button type="button" className="navigation__button navigation__button_loggedin navigation__button_movies"><NavLink to="/movies">Фильмы</NavLink></button>
           </li>

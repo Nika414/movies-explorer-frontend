@@ -11,7 +11,7 @@
 .promo__title {
     font-weight: 400;
     font-size: 50px;
-    line-height: 58px;    
+    line-height: 58px;
     text-align: center;
     letter-spacing: -0.04em;
     color: #000000;
@@ -23,6 +23,18 @@
 .promo__img {
     position: absolute;
     top: 82px;
-    left:50%;
+    left: 50%;
     transform: translate(-50%);
+}
+
+@media screen and (max-width:768px) {
+    .promo__img {
+        top: 225px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .promo__title {
+        padding: 326px 0 342px 0;
+    }
 }

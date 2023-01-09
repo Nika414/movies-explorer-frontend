@@ -12,7 +12,7 @@ export default function Auth({
       </AuthForm>
       <span className="auth__span">
         { spanText }
-        <Link to={link}>{linkText}</Link>
+        <Link className="auth__link" to={link}>{linkText}</Link>
       </span>
     </div>
   );

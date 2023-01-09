@@ -1,7 +1,7 @@
 .auth {
     display: flex;
     flex-direction: column;
-    margin: 40px 442px 70px 442px;
+    margin: 40px 34.5% 70px 34.5%;
     width: 396px;
 }
 
@@ -24,4 +24,12 @@
     text-align: center;
     color: #A0A0A0;
     margin: 0;
+}
+
+.auth__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
 }

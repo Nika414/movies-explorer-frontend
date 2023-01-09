@@ -18,9 +18,19 @@
     margin: 18px 70px;
 }
 
-.header__logo_location_auth {
+.header__logo_link {
     width: 396px;
     padding-right: calc(396px - 38px);
     box-sizing: border-box;
-    margin: 70px auto 0 442px;
+    margin: 70px 34.5% 0px 34.5%;
+}
+
+.header__logo_location_auth {
+    margin: 0;
+}
+
+@media screen and (max-width:768px) {
+    .header__logo {
+        margin: 18px 30px;
+    }
 }
