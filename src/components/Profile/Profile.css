@@ -6,6 +6,11 @@
 
 .profile__title {
     margin: 74px 0 123px 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
 }
 
 .profile__form {
@@ -99,4 +104,14 @@
     position: absolute;
     left: 0;
     top: 17px;
+}
+
+@media screen and (max-width:768px) {
+    .profile__title {
+        margin: 236px 0 96px 0;
+    }
+
+    .profile__button_type_submit {
+        margin-top: 193px;
+    }
 }

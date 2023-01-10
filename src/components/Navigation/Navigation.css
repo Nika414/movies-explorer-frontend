@@ -5,6 +5,7 @@
     align-items: center;
     color: #000000;
 }
+
 .navigation__wrapper:last-of-type {
     margin: 0;
 }
@@ -19,6 +20,12 @@
     background-color: inherit;
     display: flex;
     color: #000000;
+}
+
+.navigation__button_loggedin {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
 }
 
 .navigation__button_login {
@@ -41,13 +48,8 @@
     align-self: flex-end;
 }
 
-.navigation__button_loggedin {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    text-align: right;
-    color: #000000;
+.navigation__button_main {
+    display: none;
 }
 
 .navigation__button_account {
@@ -62,9 +64,108 @@
     margin: 28px 0;
 }
 
+.navigation__menu_button {
+    display: none;
+}
+
+.navigation__close-button {
+    position: fixed;
+    top: 22.5px;
+    right: 22.5px;
+    display: none;
+    z-index: 5;
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation__close-button_img {
+    width: 22px;
+    height: 22px;
+}
+
 @media screen and (max-width:768px) {
     .navigation__button_login {
         margin-right: 30px;
     }
-    
+
+    .navigation__list_place_movies {
+        display: none;
+    }
+
+    .nav_opened {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .navigation__list_place_movies_active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: white;
+        height: 100vh;
+        width: 67.7%;
+        margin: 0;
+        padding: 0;
+        padding-top: 159px;
+        z-index: 3;
+        position: relative;
+    }
+
+    .navigation__menu_button {
+        display: flex;
+        background: inherit;
+        border: none;
+        padding: 0;
+        margin: 15px 30px;
+    }
+
+    .menu_button__hidden {
+        display: none;
+    }
+
+    .navigation__button_loggedin {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #000000;
+        margin: 0;
+        margin-bottom: 28px;
+    }
+
+    .navigation__button_main {
+        display: flex;
+    }
+
+    .navigation__button_account {
+        margin: 0;
+    }
+
+    .navigation__wrapper_account {
+        position: absolute;
+        bottom: 91px;
+    }
+
+    .navigation__button_account-img {
+        padding-left: 23px;
+        margin-bottom: 4px;
+        align-self: flex-end;
+    }
+
+    .navigation__close-button_opened {
+        display: block;
+    }
+
 }
