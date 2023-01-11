@@ -14,7 +14,7 @@
     line-height: 58px;
     text-align: center;
     letter-spacing: -0.04em;
-    color: #000000;
+    color: var(--color-black);
     margin: 0;
     padding: 184px 0 224px 0;
     max-width: 730px;
@@ -31,10 +31,22 @@
     .promo__img {
         top: 225px;
     }
-}
 
-@media screen and (max-width:768px) {
     .promo__title {
         padding: 326px 0 342px 0;
+    }
+}
+
+@media screen and (max-width:590px) {
+    .promo__img {
+        top: 146px;
+    }
+
+    .promo__title {
+        padding: 211px 0 246px 0;
+        font-weight: 400;
+        font-size: 31px;
+        line-height: 39px;
+        max-width: 300px;
     }
 }

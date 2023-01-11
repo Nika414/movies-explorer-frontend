@@ -1,6 +1,9 @@
 :root {
+  --color-black: #000000;
+  --color-white: #FFFFFF;
   --color-pink: #F3C1F8;
-
+  --color-gray-border: #E8E8E8;
+  --color-gray-span: #A0A0A0;
+  --color-red-accent: #FF4062;
   --font-family: 'Inter';
-  --font-family-additional: 'SuisseIntl';
 }

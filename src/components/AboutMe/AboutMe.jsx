@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 function AboutMe(props, ref) {
   return (
-    <div className="about-me" ref={ref}>
+    <section className="about-me" ref={ref}>
       <h2 className="about-me__title">Студент</h2>
       <div className="about-me__student_container">
         <div className="about-me__student">
@@ -17,7 +17,7 @@ function AboutMe(props, ref) {
         </div>
         <div alt="аватар" className="about-me__student-photo" />
       </div>
-    </div>
+    </section>
   );
 }
 

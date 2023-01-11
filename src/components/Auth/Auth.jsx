@@ -5,8 +5,8 @@ export default function Auth({
   children, buttonText, selector, spanText, mainText, linkText, link,
 }) {
   return (
-    <div className="auth">
-      <h2 className="auth__title">{mainText}</h2>
+    <section className="auth">
+      <h3 className="auth__title">{mainText}</h3>
       <AuthForm buttonText={buttonText} selector={selector}>
         {children}
       </AuthForm>
@@ -14,6 +14,6 @@ export default function Auth({
         { spanText }
         <Link className="auth__link" to={link}>{linkText}</Link>
       </span>
-    </div>
+    </section>
   );
 }

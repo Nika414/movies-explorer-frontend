@@ -1,6 +1,5 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
-@import url(./vendor/fonts/suisseIntl.css);
 @import url(./vendor/variables.css);
 @import url(./root.css);
 
@@ -17,6 +16,11 @@ a:hover {
 button:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
 }
 
 @import url(./components/Header/Header.css);

@@ -4,7 +4,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     padding-bottom: 39px;
-    border-bottom: 1px solid #E8E8E8;
+    border-bottom: 1px solid var(--color-gray-border);
     margin: 0 5.5%;
     width: 89%;
 }
@@ -21,7 +21,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: #000000;
+    color: var(--color-black);
 }
 
 .filter-checkbox__input:checked+.filter-checkbox__customized-checkbox {

@@ -14,9 +14,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #000000;
+    color: var(--color-black);
     background: white;
-    border: 1px solid #E8E8E8;
+    border: 1px solid var(--color-gray-border);
     border-radius: 5px;
     margin-bottom: 80px;
 }

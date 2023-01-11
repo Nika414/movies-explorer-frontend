@@ -1,4 +1,4 @@
-import CardLike from '../App/CardLike';
+import CardLike from '../CardLike';
 import pic from '../../images/pic_example.png';
 
 export default function MoviesCard() {

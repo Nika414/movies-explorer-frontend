@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-no-bind */
 import { createRef } from 'react';
 import AboutMe from '../AboutMe/AboutMe';
 import AboutProject from '../AboutProject/AboutProject';

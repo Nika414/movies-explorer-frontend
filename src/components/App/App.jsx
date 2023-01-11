@@ -13,41 +13,43 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import PageNotFound from '../PageNotFound/PageNotFound';
+import { routeName } from '../../utils/constants';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   const location = useLocation();
-  const isHeaderRequired = location.pathname !== '/404';
-  const isFooterRequired = (location.pathname === '/' || location.pathname === '/movies' || location.pathname === '/saved-movies');
+  const isHeaderRequired = location.pathname !== routeName.pageNotFound;
+  const isFooterRequired = (location.pathname === routeName.main || location.pathname === routeName.movies
+    || location.pathname === routeName.moviesSav);
 
   return (
     <div className="App">
       {' '}
       {isHeaderRequired && (<Header loggedIn={loggedIn} location={location.pathname} />)}
       <Switch>
-        <Route exact path="/sign-up">
+        <Route exact path={routeName.register}>
           <Register />
         </Route>
-        <Route exact path="/sign-in">
+        <Route exact path={routeName.login}>
           <Login />
         </Route>
-        <Route exact path="/">
+        <Route exact path={routeName.main}>
           <Main />
         </Route>
-        <ProtectedRoute exact path="/movies" loggedIn={loggedIn}>
+        <ProtectedRoute exact path={routeName.movies} loggedIn={loggedIn}>
           <Movies />
         </ProtectedRoute>
-        <ProtectedRoute exact path="/saved-movies" loggedIn={loggedIn}>
+        <ProtectedRoute exact path={routeName.moviesSav} loggedIn={loggedIn}>
           <SavedMovies />
         </ProtectedRoute>
-        <ProtectedRoute exact path="/profile" loggedIn={loggedIn}>
+        <ProtectedRoute exact path={routeName.profile} loggedIn={loggedIn}>
           <Profile />
         </ProtectedRoute>
-        <Route path="/404">
+        <Route path={routeName.pageNotFound}>
           <PageNotFound />
         </Route>
         <Route path="*">
-          <Redirect to="/404" />
+          <Redirect to={routeName.pageNotFound} />
         </Route>
       </Switch>
       {(isFooterRequired) && (<Footer />)}

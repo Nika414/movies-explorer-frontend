@@ -1,12 +1,11 @@
 .nav-tub {
-    background-color: black;
-
+    background-color: var(--color-black);
 }
 
 .nav-tub__list {
     text-decoration: none;
     list-style-type: none;
-    color: white;
+    color: var(--color-white);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -17,17 +16,24 @@
 .nav-tub__link {
     background-color: inherit;
     text-decoration: underline;
-    color: white;
+    color: var(--color-white);
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
     display: flex;
     align-items: center;
     text-decoration-line: underline;
-    color: #FFFFFF;
+    color: var(--color-white);
     margin: 0;
     margin-right: 40px;
     border: none;
     cursor: pointer;
     padding: 0;
+}
+
+@media screen and (max-width:590px) {
+    .nav-tub__link {
+        font-size: 11px;
+        margin-right: 24px;
+    } 
 }

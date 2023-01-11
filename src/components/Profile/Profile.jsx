@@ -1,7 +1,15 @@
+import { useHistory } from 'react-router-dom';
+import { routeName } from '../../utils/constants';
+
 export default function Profile() {
+  const history = useHistory();
+  function handleLogOut() {
+    history.push(routeName.login);
+  }
+
   return (
-    <div className="profile">
-      <h2 className="profile__title">Привет, Вероника!</h2>
+    <main className="profile">
+      <h3 className="profile__title">Привет, Вероника!</h3>
       <form className="profile__form" method="post">
         <label className="profile__form_label" htmlFor="name">
           <span className="profile__form_span">Имя</span>
@@ -16,10 +24,10 @@ export default function Profile() {
         <button className="profile__button profile__button_type_submit" type="submit">
           Редактировать
         </button>
-        <button className="profile__button profile__button_type_exit" type="button">
+        <button onClick={handleLogOut} className="profile__button profile__button_type_exit" type="button">
           Выйти из аккаунта
         </button>
       </form>
-    </div>
+    </main>
   );
 }

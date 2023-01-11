@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 0 25px 0;
-    border-bottom: 1px solid #E8E8E8;
+    border-bottom: 1px solid var(--color-gray-border);
 }
 
 .card__like {
@@ -30,7 +30,7 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
-    color: #000000;
+    color: var(--color-black);
     margin: 0;
     padding: 0;
 }
@@ -42,14 +42,14 @@
     line-height: 13px;
     display: flex;
     align-items: center;
-    color: #A0A0A0;
+    color: var(--color-gray-span);
     margin: 0;
     padding: 0;
     padding-top: 6px;
 }
 
 .card__like_active {
-    fill: #FF4062;
+    fill: var(--color-red-accent);
 }
 
 .card__like:hover {

@@ -81,7 +81,7 @@
 }
 
 .preloader__round::after {
-    background: white;
+    background: var(--color-white);
     animation: preloader-inside-white 1s ease-in-out infinite;
 }
 

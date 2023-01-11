@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 
 const AboutProject = forwardRef((props, ref) => (
-  <div className="about-project" ref={ref}>
+  <section className="about-project" ref={ref}>
     <h2 className="about-project__title">О проекте</h2>
     <div className="about-project__container">
       <div className="about-project__text-container">
@@ -14,14 +14,14 @@ const AboutProject = forwardRef((props, ref) => (
       </div>
     </div>
     <div className="about-project__timing-container">
-      <p className="about-project__timing about-project__backend">1 неделя</p>
-      <p className="about-project__timing about-project__frontend">4 недели</p>
+      <span className="about-project__timing about-project__backend">1 неделя</span>
+      <span className="about-project__timing about-project__frontend">4 недели</span>
     </div>
     <div className="about-project__timing-container">
-      <p className="about-project__timing about-project__title-backend">Back-end</p>
-      <p className="about-project__timing about-project__title-frontend">Front-end</p>
+      <span className="about-project__timing about-project__title-backend">Back-end</span>
+      <span className="about-project__timing about-project__title-frontend">Front-end</span>
     </div>
-  </div>
+  </section>
 ));
 
 export default AboutProject;

@@ -12,7 +12,7 @@
     font-size: 22px;
     line-height: 27px;
     letter-spacing: -0.04em;
-    color: #000000;
+    color: var(--color-black);
 }
 
 .about-project__container {
@@ -27,7 +27,7 @@
     font-size: 20px;
     line-height: 24px;
     letter-spacing: -0.04em;
-    color: #000000;
+    color: var(--color-black);
 
 }
 
@@ -36,7 +36,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #000000;
+    color: var(--color-black);
     margin: 0;
     margin-top: 26px;
 }
@@ -44,6 +44,11 @@
 .about-project__text-container {
     max-width: 550px;
     margin: 0 40px 110px 0;
+}
+
+.about-project__text-container:last-of-type {
+    max-width: 550px;
+    margin: 0;
 }
 
 .about-project__timing-container {
@@ -58,31 +63,31 @@
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    color: #FFFFFF;
+    color: var(--color-white);
     padding: 9px 0;
     margin: 0;
 }
 
 .about-project__backend {
-    background-color: #000000;
+    background-color: var(--color-black);
     width: 25%;
 }
 
 .about-project__frontend {
     background-color: #F2F2F2;
-    color: black;
+    color: var(--color-black);
     width: 75%;
 }
 
 .about-project__title-backend {
     width: 25%;
-    color: #A0A0A0;
+    color: var(--color-gray-span);
     padding: 14px 0;
 }
 
 .about-project__title-frontend {
     width: 75%;
-    color: #A0A0A0;
+    color: var(--color-gray-span);
     padding: 14px 0;
 }
 
@@ -92,7 +97,7 @@
 
 @media screen and (max-width:768px) {
     .about-project__title {
-        margin: 90px 70px 0 50px;
+        margin: 90px 50px 0 50px;
     }
 
     .about-project__container {
@@ -132,5 +137,71 @@
 
     .about-project__timing-container:last-of-type {
         margin-bottom: 90px;
+    }
+}
+
+@media screen and (max-width:590px) {
+    .about-project__title {
+        margin: 70px 18px 0 18px;
+        padding-bottom: 28px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about-project__container {
+        padding: 60px 18px 60px 18px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-project__text-container {
+        max-width: 284px;
+        margin: 0 0 56px 0;
+    }
+
+    .about-project__text {
+        font-size: 11px;
+        line-height: 16px;
+        margin-top: 16px;
+    }
+
+    .about-project__text-container:last-of-type {
+        max-width: 284px;
+    }
+
+    .about-project__span {
+        max-width: 319px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .about-project__timing-container {
+        margin: 0 18px;
+    }
+
+    .about-project__timing-container:last-of-type {
+        margin-bottom: 60px;
+    }
+
+    .about-project__backend {
+        width: 35.21%;
+    }
+
+    .about-project__frontend {
+        width: 64.79%;
+    }
+
+    .about-project__title-backend {
+        width: 35.21%;
+    }
+
+    .about-project__title-frontend {
+        width: 64.79%;
+    }
+
+    .about-project__timing {
+        font-size: 11px;
+        line-height: 13px;
+        padding: 11px 0;
     }
 }

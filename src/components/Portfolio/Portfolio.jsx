@@ -2,7 +2,7 @@ import arrow from '../../images/link-arrow.svg';
 
 export default function Portfolio() {
   return (
-    <div className="portfolio">
+    <section className="portfolio">
       <span className="portfolio__span">Портфолио</span>
       <ul className="portfolio__container">
         <li className="portfolio__option">
@@ -24,6 +24,6 @@ export default function Portfolio() {
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   );
 }
