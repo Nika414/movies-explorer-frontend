@@ -107,7 +107,7 @@
         width: 100%;
     }
 
-    .navigation__list_place_movies_active {
+    .navigation__list_menu_opened {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -183,18 +183,29 @@
 }
 
 @media screen and (max-width:590px) {
-    .navigation__button {
-        font-size: 10px;
-    }
 
     .navigation__wrapper {
         margin-right: 14px;
     }
+
     .navigation__button_login {
         padding: 5px 12px;
         background-color: var(--color-black);
         color: var(--color-white);
         border-radius: 3px;
         margin-right: 14px;
+    }
+
+    .navigation__menu_button {
+        margin: 15px 14px 0 0;
+    }
+
+    .navigation__list_menu_opened {
+        width: 100%;
+        padding-top: 144px;
+    }
+
+    .navigation__wrapper_account {
+        bottom: 48px;
     }
 }

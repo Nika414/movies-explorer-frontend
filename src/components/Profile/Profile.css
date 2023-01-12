@@ -115,3 +115,25 @@
         margin-top: 193px;
     }
 }
+
+@media screen and (max-width:590px) {
+    .profile__title {
+        margin: 70px 0 80px 0;
+    }
+
+    .profile__button_type_submit {
+        margin-top: 362px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .profile__button_type_exit {
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 40px;
+    }
+
+    .profile__form {
+        width: 81.25%;
+    }
+}

@@ -2,7 +2,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 export default function MoviesCardList() {
   return (
-    <main className="MoviesCardList">
+    <main className="movies-card-list">
       <MoviesCard />
       <MoviesCard />
       <MoviesCard />

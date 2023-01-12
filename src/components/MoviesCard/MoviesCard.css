@@ -66,3 +66,29 @@
         height: 190px;
     }
 }
+
+@media screen and (max-width:590px) {
+    .card {
+        width: 300px;
+        height: 250px;
+    }
+
+    .card__img {
+        height: 168px;
+    }
+
+    .card__container {
+        padding: 10px 0 25px 0;
+    }
+
+    .card__title {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .card__timing {
+        font-size: 10px;
+        line-height: 12px;
+        padding-top: 10px;
+    }
+}

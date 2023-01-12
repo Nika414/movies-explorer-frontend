@@ -43,3 +43,15 @@
         margin: 18px 14px;
     }
 }
+
+@media screen and (max-width:590px) {
+    .header__logo_link {
+        width: fit-content;
+        padding-right: 0;
+        margin: 56px auto 0 auto;
+    }
+
+    .header__logo_location_auth {
+        margin: 0;
+    }
+}
