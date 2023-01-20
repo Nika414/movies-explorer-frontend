@@ -17,6 +17,7 @@
     line-height: 29px;
     color: var(--color-black);
     width: 100%;
+    text-align: center;
 }
 
 .auth__span {

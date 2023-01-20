@@ -3,7 +3,7 @@ import pic from '../../images/pic_example.png';
 
 export default function MoviesCard() {
   return (
-    <div className="card">
+    <li className="card">
       <img className="card__img" src={pic} alt="Название карточки" />
       <div className="card__container">
         <h3 className="card__title">
@@ -14,6 +14,6 @@ export default function MoviesCard() {
       <span className="card__timing">
         1ч 15мин
       </span>
-    </div>
+    </li>
   );
 }

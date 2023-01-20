@@ -6,19 +6,19 @@ export default function Portfolio() {
       <span className="portfolio__span">Портфолио</span>
       <ul className="portfolio__container">
         <li className="portfolio__option">
-          <a className="portfolio__link" href="https://nika414.github.io/how-to-learn/">
+          <a target="_blank" className="portfolio__link" href="https://nika414.github.io/how-to-learn/" rel="noreferrer">
             Статичный сайт
             <img src={arrow} alt="Перейти" className="portfolio__arrow" />
           </a>
         </li>
         <li className="portfolio__option">
-          <a className="portfolio__link" href="https://nika414.github.io/russian-travel/">
+          <a target="_blank" className="portfolio__link" href="https://nika414.github.io/russian-travel/" rel="noreferrer">
             <img src={arrow} alt="Перейти" className="portfolio__arrow" />
             Адаптивный сайт
           </a>
         </li>
         <li className="portfolio__option">
-          <a className="portfolio__link" href="https://mmesto.nomoredomains.club/">
+          <a target="_blank" className="portfolio__link" href="https://mmesto.nomoredomains.club/" rel="noreferrer">
             <img src={arrow} alt="Перейти" className="portfolio__arrow" />
             Одностраничное приложение
           </a>

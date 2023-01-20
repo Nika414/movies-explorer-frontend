@@ -13,7 +13,7 @@ function AboutMe(props, ref) {
             Cupiditate esse, aliquam possimus repellat laborum dolorem!
             Voluptate optio molestias assumenda vero incidunt laboriosam est impedit blanditiis dolorum.
           </p>
-          <p className="about-me__student-github"><a href="https://github.com/Nika414">Github</a></p>
+          <p className="about-me__student-github"><a target="_blank" href="https://github.com/Nika414" rel="noreferrer">Github</a></p>
         </div>
         <div alt="аватар" className="about-me__student-photo" />
       </div>
