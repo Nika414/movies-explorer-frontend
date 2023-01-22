@@ -1,12 +1,18 @@
 .card {
-    width: 270px;
+    min-width: 270px;
+    width: max-content;
     height: 230px;
     list-style-type: none;
+    flex-grow: 1;
 }
 
 .card__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     height: 151px;
+    object-fit: cover;   
 }
 
 .card__container {
@@ -34,6 +40,16 @@
     padding: 0;
     width: 24px;
     height: 24px;
+}
+
+.card__delete {
+    padding: 5.6px;
+}
+
+.card__delete-button {
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 .card__title {
     font-style: normal;

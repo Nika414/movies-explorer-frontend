@@ -8,7 +8,7 @@ export default function SavedMovies() {
     <>
       <SearchForm />
       <FilterCheckbox />
-      <MoviesCardList />
+      <MoviesCardList savedMovies />
       <ShowMoreButton />
     </>
   );
