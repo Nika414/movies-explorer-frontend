@@ -1,9 +1,9 @@
-.show-more-button__container {
+.show-more-button {
     display: flex;
     justify-content: center;
 }
 
-.show-more-button {
+.show-more-button__button {
     width: 25%;
     height: 36px;
     font-style: normal;
@@ -22,7 +22,7 @@
 }
 
 @media screen and (max-width:768px) {
-    .show-more-button {
+    .show-more-button__button {
         width: 41.7%;
     } 
 }

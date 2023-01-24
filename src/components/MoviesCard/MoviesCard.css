@@ -74,7 +74,7 @@
     padding-top: 6px;
 }
 
-.card__like_active {
+.card__like_active .card__like-path{
     fill: var(--color-red-accent);
 }
 

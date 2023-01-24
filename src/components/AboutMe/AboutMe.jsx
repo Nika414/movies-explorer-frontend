@@ -4,7 +4,7 @@ function AboutMe(props, ref) {
   return (
     <section className="about-me" ref={ref}>
       <h2 className="about-me__title">Студент</h2>
-      <div className="about-me__student_container">
+      <div className="about-me__student-container">
         <div className="about-me__student">
           <h3 className="about-me__student-name">Вероника</h3>
           <span className="about-me__student-short-about">Фронтенд-разработчик, 27 лет</span>
@@ -15,7 +15,7 @@ function AboutMe(props, ref) {
           </p>
           <p className="about-me__student-github"><a target="_blank" href="https://github.com/Nika414" rel="noreferrer">Github</a></p>
         </div>
-        <div alt="аватар" className="about-me__student-photo" />
+        <div className="about-me__student-photo" />
       </div>
     </section>
   );

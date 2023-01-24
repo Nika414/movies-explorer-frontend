@@ -3,7 +3,7 @@ import { routeName } from '../../utils/constants';
 
 export default function Register() {
   return (
-    <Auth buttonText="Зарегистрироваться" selector="register__button" spanText="Уже зарегистрированы?" mainText="Добро пожаловать!" linkText=" Войти" link={routeName.login}>
+    <Auth buttonText="Зарегистрироваться" selector="form__button_place_register" spanText="Уже зарегистрированы?" mainText="Добро пожаловать!" linkText=" Войти" link={routeName.login}>
       <label className="form__label" htmlFor="name">
         Имя
         <input className="form__input" id="name" />

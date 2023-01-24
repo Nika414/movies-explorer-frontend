@@ -1,10 +1,10 @@
-.login__button {
+.form__button_place_login {
     margin: 197px 0 16px 0;
 }
 
 @media screen and (max-width:590px) {
-    .login__button {
+    .form__button_place_login {
         margin: 309px 0 16px 0;
     }
-    
+
 }

@@ -3,7 +3,7 @@ import arrow from '../../images/link-arrow.svg';
 export default function Portfolio() {
   return (
     <section className="portfolio">
-      <span className="portfolio__span">Портфолио</span>
+      <h2 className="portfolio__span">Портфолио</h2>
       <ul className="portfolio__container">
         <li className="portfolio__option">
           <a target="_blank" className="portfolio__link" href="https://nika414.github.io/how-to-learn/" rel="noreferrer">

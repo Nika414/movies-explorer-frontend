@@ -8,7 +8,7 @@
     border: none;
 }
 
-.header__location_authorized {
+.header_location_authorized {
     background-color: var(--color-white);
 }
 
@@ -18,7 +18,7 @@
     margin: 18px 70px;
 }
 
-.header__logo_link {
+.header__logo-link {
     width: 31%;
     padding-right: calc(396px - 38px);
     box-sizing: border-box;
@@ -45,7 +45,7 @@
 }
 
 @media screen and (max-width:590px) {
-    .header__logo_link {
+    .header__logo-link {
         width: fit-content;
         padding-right: 0;
         margin: 56px auto 0 auto;

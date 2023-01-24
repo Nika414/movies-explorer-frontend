@@ -25,7 +25,7 @@
     margin: 0;
 }
 
-.about-me__student_container {
+.about-me__student-container {
     display: flex;
     flex-direction: row;
     margin: 66px 70px 100px 70px;
@@ -80,7 +80,7 @@
         margin: 90px 50px 0 50px;
     }
 
-    .about-me__student_container {
+    .about-me__student-container {
         margin: 66px 50px 90px 50px;
     }
 
@@ -115,7 +115,7 @@
         padding-bottom: 28px;
     }
 
-    .about-me__student_container {
+    .about-me__student-container {
         flex-wrap: wrap;
         flex-flow: column-reverse;
         margin: 60px 14px 56px 14px;
