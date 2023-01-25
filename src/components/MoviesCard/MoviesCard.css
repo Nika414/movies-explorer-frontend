@@ -1,0 +1,120 @@
+.card {
+    min-width: 270px;
+    width: max-content;
+    height: 230px;
+    list-style-type: none;
+    flex-grow: 1;
+}
+
+.card__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 151px;
+    object-fit: cover;   
+}
+
+.card__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 25px 0;
+    border-bottom: 1px solid var(--color-gray-border);
+}
+
+.card__like {
+    background: transparent;
+    border: none;
+    height: 8.5px;
+    width: 10px;
+    padding: 8px 7px 7.5px 7px;
+    background-color: var(--color-background);
+    border-radius: 50%;
+}
+
+.card__like-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.card__delete {
+    padding: 5.6px;
+}
+
+.card__delete-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.card__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--color-black);
+    margin: 0;
+    padding: 0;
+}
+
+.card__timing {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: var(--color-gray-span);
+    margin: 0;
+    padding: 0;
+    padding-top: 6px;
+}
+
+.card__like_active .card__like-path{
+    fill: var(--color-red-accent);
+}
+
+.card__like:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width:960px) {
+    .card {
+        width: 339px;
+        height: 268px;
+    }
+
+    .card__img {
+        height: 190px;
+    }
+}
+
+@media screen and (max-width:590px) {
+    .card {
+        width: 300px;
+        height: 250px;
+    }
+
+    .card__img {
+        height: 168px;
+    }
+
+    .card__container {
+        padding: 10px 0 25px 0;
+    }
+
+    .card__title {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .card__timing {
+        font-size: 10px;
+        line-height: 12px;
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,13 @@
+.root {
+  background-color: var(--color-white);
+  font-family: var(--font-family), Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  min-height: 100vh;
+  max-width: 1280px;
+  width: 100%;
+  color: var(--color-black);
+  margin: 0;
+}

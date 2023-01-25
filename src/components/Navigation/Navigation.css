@@ -1,0 +1,206 @@
+.navigation__wrapper {
+    margin-right: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: var(--color-black);
+}
+
+.navigation__wrapper:last-of-type {
+    margin: 0;
+}
+
+.navigation__button {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    display: flex;
+    color: var(--color-black);
+}
+
+.navigation__button_loggedin {
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+}
+
+.navigation__button_login {
+    padding: 8px 20px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border-radius: 3px;
+    margin-right: 70px;
+}
+
+.navigation__list {
+    display: flex;
+    text-decoration: none;
+    margin: 21px 0;
+}
+
+.navigation__button-account-img {
+    padding-left: 23px;
+    margin-bottom: 2px;
+    align-self: flex-end;
+}
+
+.navigation__button_main {
+    display: none;
+}
+
+.navigation__button_account {
+    margin-right: 50px;
+}
+
+.navigation__button_saved-movies {
+    font-weight: 400;
+}
+
+.navigation__list_place_movies {
+    margin: 28px 0;
+}
+
+.navigation__menu-button {
+    display: none;
+}
+
+.navigation__close-button {
+    position: fixed;
+    top: 22.5px;
+    right: 22.5px;
+    display: none;
+    z-index: 5;
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation__close-button-img {
+    width: 22px;
+    height: 22px;
+}
+
+@media screen and (max-width:768px) {
+    .navigation__button_login {
+        margin-right: 30px;
+    }
+
+    .navigation__list_place_movies {
+        display: none;
+    }
+
+    .navigation_opened {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .navigation__list_menu_opened {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--color-white);
+        height: 100vh;
+        width: 67.7%;
+        margin: 0;
+        padding: 0;
+        padding-top: 159px;
+        z-index: 3;
+        position: relative;
+    }
+
+    .navigation__menu-button {
+        display: flex;
+        background: inherit;
+        border: none;
+        padding: 0;
+        margin: 15px 30px;
+    }
+
+    .menu_button__hidden {
+        display: none;
+    }
+
+    .navigation__button_loggedin {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: var(--color-black);
+        margin: 0;
+    }
+
+    .navigation__button_main {
+        display: flex;
+    }
+
+    .navigation__button_account {
+        margin: 0;
+    }
+
+    .navigation__wrapper_account {
+        position: absolute;
+        bottom: 91px;
+    }
+
+    .navigation__button-account-img {
+        padding-left: 23px;
+        margin-bottom: 4px;
+        align-self: flex-end;
+    }
+
+    .navigation__close-button_opened {
+        display: block;
+    }
+
+    .navigation__wrapper {
+        padding-bottom: 4px;
+        margin-bottom: 24px;
+    }
+
+    .navigation__wrapper_active-page {
+        border-bottom: 2px solid var(--color-black);
+    }
+}
+
+@media screen and (max-width:590px) {
+
+    .navigation__wrapper {
+        margin-right: 14px;
+    }
+
+    .navigation__button_login {
+        padding: 5px 12px;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        border-radius: 3px;
+        margin-right: 14px;
+    }
+
+    .navigation__menu-button {
+        margin: 15px 14px 0 0;
+    }
+
+    .navigation__list_menu_opened {
+        width: 100%;
+        padding-top: 144px;
+    }
+
+    .navigation__wrapper_account {
+        bottom: 48px;
+    }
+}

@@ -1,0 +1,23 @@
+.movies-card-list {
+    display: flex;
+    column-gap: 20px;
+    row-gap: 38px;
+    flex-wrap: wrap;
+    margin: 80px 5.4% 93px 5.4%;
+    padding: 0;
+}
+
+@media screen and (max-width: 960px) {
+    .movies-card-list {
+        column-gap: 30px;
+        row-gap: 30px;
+        margin: 80px 3.9% 93px 3.9%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .movies-card-list {
+        row-gap: 34px;
+        margin: 50px 3.1% 60px 3.1%;
+    }
+}

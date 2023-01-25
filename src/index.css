@@ -1,0 +1,45 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/inter.css);
+@import url(./vendor/variables.css);
+@import url(./root.css);
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+@import url(./components/Header/Header.css);
+@import url(./components/Promo/Promo.css);
+@import url(./components/Navigation/Navigation.css);
+@import url(./components/NavTab/NavTab.css);
+@import url(./components/AboutProject/AboutProject.css);
+@import url(./components/Techs/Techs.css);
+@import url(./components/AboutMe/AboutMe.css);
+@import url(./components/Portfolio/Portfolio.css);
+@import url(./components/Footer/Footer.css);
+@import url(./components/SearchForm/SearchForm.css);
+@import url(./components/FilterCheckbox/FilterCheckbox.css);
+@import url(./components/MoviesCardList/MoviesCardList.css);
+@import url(./components/MoviesCard/MoviesCard.css);
+@import url(./components/ShowMoreButton/ShowMoreButton.css);
+@import url(./components/Auth/Auth.css);
+@import url(./components/AuthForm/AuthForm.css);
+@import url(./components/Register/Register.css);
+@import url(./components/Login/Login.css);
+@import url(./components/Profile/Profile.css);
+@import url(./components/PageNotFound/PageNotFound.css);
