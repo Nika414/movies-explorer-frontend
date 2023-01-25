@@ -17,7 +17,7 @@
     line-height: 29px;
     color: var(--color-black);
     width: 100%;
-    text-align: center;
+    text-align: left;
 }
 
 .auth__span {
@@ -49,6 +49,7 @@
     }
 
     .auth__title {
+        text-align: center;
         margin: 0;
         margin-bottom: 80px;
         font-style: normal;
