@@ -1,9 +1,12 @@
+/* eslint-disable no-console */
 import { useState } from 'react';
 
-export default function CardLike() {
+export default function CardLike({ onClick }) {
   const [isLiked, setIsLiked] = useState(false);
+
   function handleLike() {
     setIsLiked(!isLiked);
+    onClick();
   }
 
   return (

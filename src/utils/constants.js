@@ -8,4 +8,15 @@ const routeName = {
   register: '/sign-up',
 };
 
-export { routeName };
+const options = {
+  baseUrl: 'https://api.nomoreparties.co',
+  beatfilmUrl: 'https://api.nomoreparties.co/beatfilm-movies',
+  mainUrl: 'https://api.mmovies-explorer.nomoredomains.club/',
+};
+
+const regExpRu = /[а-яА-ЯЁё]/g;
+const regExpEn = /[a-z]/g;
+
+export {
+  routeName, options, regExpRu, regExpEn,
+};

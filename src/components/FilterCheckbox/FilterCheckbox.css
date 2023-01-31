@@ -25,7 +25,7 @@
 }
 
 .filter-checkbox__input:checked+.filter-checkbox__customized-checkbox {
-    background: #2BE080;
+    background: var(--color-pink);
 }
 
 .filter-checkbox__input:checked+.filter-checkbox__customized-checkbox::after {

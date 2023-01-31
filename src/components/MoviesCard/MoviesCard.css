@@ -6,6 +6,9 @@
     flex-grow: 1;
 }
 
+.card__link {
+    width: 100%;
+}
 .card__img {
     background-size: cover;
     background-position: center;
@@ -30,7 +33,7 @@
     height: 8.5px;
     width: 10px;
     padding: 8px 7px 7.5px 7px;
-    background-color: var(--color-background);
+    background-color: var(--color-pink);
     border-radius: 50%;
 }
 
@@ -52,6 +55,7 @@
     padding: 0;
 }
 .card__title {
+    max-width: 250px;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -59,6 +63,9 @@
     color: var(--color-black);
     margin: 0;
     padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card__timing {

@@ -51,6 +51,15 @@
     }
 }
 
+.search-form__error {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--color-red-accent);
+    padding: 10px 0 0 10px;
+}
+
 @media screen and (max-width:960px) {
     .search-form {
         margin: 80px 4.3% 44px 4.3%;
