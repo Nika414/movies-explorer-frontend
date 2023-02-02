@@ -4,7 +4,7 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 
 export default function MoviesCardList({
-  cards, isError, savedMovies, onDelete, visible,
+  cards, isError, savedMovies, onDelete, visible, onLike,
 }) {
   return (
     <ul className="movies-card-list">
@@ -21,6 +21,7 @@ export default function MoviesCardList({
             key={card.id || card._id}
             card={card}
             onDelete={onDelete}
+            onLike={onLike}
           />
         ))
       )) }

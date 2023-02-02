@@ -1,10 +1,6 @@
-import { useState } from 'react';
-
-export default function CardLike({ onClick }) {
-  const [isLiked, setIsLiked] = useState(false);
-
+/* eslint-disable no-debugger */
+export default function CardLike({ onClick, isLiked }) {
   function handleLike() {
-    setIsLiked(!isLiked);
     onClick();
   }
 

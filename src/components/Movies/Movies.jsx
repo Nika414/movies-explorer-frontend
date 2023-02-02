@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-nested-ternary */
@@ -21,7 +22,7 @@ export default function Movies() {
   const [visible, setVisible] = useState(4);
   const [loadingFinished, setLoadingFinished] = useState(false);
   const api = new MoviesApi(options);
-  const checkbox = JSON.parse(localStorage.getItem('saved-movies_checkbox'));
+  const checkbox = JSON.parse(localStorage.getItem('movies_checkbox'));
 
   function handleSearch() {
     if (cards.length === 0) {
@@ -54,7 +55,21 @@ export default function Movies() {
   function handleShortcuts(filterOn) {
     setCards(handleShortcutsFilter(handleFilter(cardsLS, false), filterOn));
   }
-
+  function onLike(id, newId) {
+    const newCards = cardsLS.map((item) => {
+      if (item.id === id && !item.saved) {
+        item._id = newId;
+        item.saved = true;
+      } else {
+        item._id = newId;
+        item.saved = false;
+      }
+      return item;
+    });
+    console.log(newCards);
+    localStorage.setItem('movies', JSON.stringify(newCards));
+    setCards(handleShortcutsFilter(handleFilter(newCards, false), checkbox));
+  }
   return (
     <section className="movies">
       <SearchForm onClick={handleSearch} />
@@ -62,7 +77,7 @@ export default function Movies() {
       {
         isLoading ? (<Preloader />)
           : cards.length === 0 && loadingFinished
-            ? (<span className="movies__error">Ничего не найдено</span>) : (<MoviesCardList cards={cards} isError={isError} visible={visible} />)
+            ? (<span className="movies__error">Ничего не найдено</span>) : (<MoviesCardList cards={cards} isError={isError} onLike={onLike} visible={visible} />)
       }
       {cards.length > visible && (<ShowMoreButton onClick={handleMoreCards} />)}
     </section>
