@@ -10,7 +10,8 @@ export default class MoviesApi {
   }
 
   getCards() {
-    return fetch(this._beatfilmUrl).then((res) => this._handleResponse(res))
+    return fetch(this._beatfilmUrl)
+      .then((res) => this._handleResponse(res))
       .catch((err) => console.log(err));
   }
 }

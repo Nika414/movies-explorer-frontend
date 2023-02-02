@@ -1,18 +1,13 @@
 .card {
-    min-width: 270px;
-    width: max-content;
+    width: 270px;
     height: 230px;
     list-style-type: none;
-    flex-grow: 1;
 }
 
 .card__link {
     width: 100%;
 }
 .card__img {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     width: 100%;
     height: 151px;
     object-fit: cover;   

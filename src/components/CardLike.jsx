@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { useState } from 'react';
 
 export default function CardLike({ onClick }) {
