@@ -4,12 +4,15 @@
 
 import { useState, useEffect } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
 import MainApi from '../../utils/MainApi';
-import Preloader from '../Preloader/Preloader';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
-import { options, handleFilter, handleShortcutsFilter } from '../../utils/constants';
+import {
+  options,
+} from '../../utils/constants';
+import {
+  handleFilter, handleShortcutsFilter, renderCardlist, setStorage,
+} from '../../utils/functions';
 
 export default function SavedMovies() {
   const api = new MainApi(options);
@@ -27,17 +30,23 @@ export default function SavedMovies() {
   useEffect(() => {
     setIsLoading(true);
     api.getSavedCards().then((res) => {
-      localStorage.setItem('saved__movies', JSON.stringify(res));
+      setStorage('saved__movies', res);
       setSavedCardsLS(JSON.parse(localStorage.getItem('saved__movies')));
       setSavedCards(handleShortcutsFilter(handleFilter(res, true), checkbox));
     }).catch((err) => { console.log(err); setIsError(true); })
       .finally(() => setIsLoading(false));
   }, []);
 
-  function handleDelete(cardId) {
+  function onDelete(cardId) {
     const newCards = savedCards.filter((item) => item._id !== cardId);
-    localStorage.setItem('saved__movies', JSON.stringify(newCards));
+    setStorage('saved__movies', newCards);
     setSavedCards(newCards);
+    const newMainCards = JSON.parse(localStorage.getItem('movies')).map((item) => {
+      if (item._id === cardId && item.saved) {
+        item.saved = false;
+      } return item;
+    });
+    setStorage('movies', newMainCards);
   }
 
   function handleMoreCards() {
@@ -52,20 +61,15 @@ export default function SavedMovies() {
     <section className="movies">
       <SearchForm onClick={handleSearch} savedMovies />
       <FilterCheckbox onClick={handleShortcuts} savedMovies />
-      {
-      isLoading ? (<Preloader />)
-        : savedCards.length === 0
-          ? (<span className="movies__error">Ничего не найдено</span>)
-          : (
-            <MoviesCardList
-              savedMovies
-              cards={savedCards}
-              isError={isError}
-              onDelete={handleDelete}
-              visible={visible}
-            />
-          )
-    }
+      { renderCardlist(
+        isLoading,
+        savedCards,
+        isError,
+        onDelete,
+        visible,
+        true,
+        true,
+      )}
       {savedCards.length > visible && (<ShowMoreButton onClick={handleMoreCards} />)}
     </section>
   );

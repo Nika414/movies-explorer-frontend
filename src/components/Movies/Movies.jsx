@@ -6,13 +6,12 @@
 import { useState, useEffect } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import SearchForm from '../SearchForm/SearchForm';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 import MoviesApi from '../../utils/MoviesApi';
 import {
-  options, handleFilter, handleShortcutsFilter,
+  options,
 } from '../../utils/constants';
-import Preloader from '../Preloader/Preloader';
+import { handleFilter, handleShortcutsFilter, renderCardlist } from '../../utils/functions';
 
 export default function Movies() {
   const cardsLS = JSON.parse(localStorage.getItem('movies')) || [];
@@ -55,7 +54,7 @@ export default function Movies() {
   function handleShortcuts(filterOn) {
     setCards(handleShortcutsFilter(handleFilter(cardsLS, false), filterOn));
   }
-  function onLike(id, newId) {
+  function onCardClick(id, newId) {
     const newCards = cardsLS.map((item) => {
       if (item.id === id && !item.saved) {
         item._id = newId;
@@ -70,14 +69,21 @@ export default function Movies() {
     localStorage.setItem('movies', JSON.stringify(newCards));
     setCards(handleShortcutsFilter(handleFilter(newCards, false), checkbox));
   }
+
   return (
     <section className="movies">
       <SearchForm onClick={handleSearch} />
       <FilterCheckbox onClick={handleShortcuts} />
       {
-        isLoading ? (<Preloader />)
-          : cards.length === 0 && loadingFinished
-            ? (<span className="movies__error">Ничего не найдено</span>) : (<MoviesCardList cards={cards} isError={isError} onLike={onLike} visible={visible} />)
+        renderCardlist(
+          isLoading,
+          cards,
+          isError,
+          onCardClick,
+          visible,
+          loadingFinished,
+          false,
+        )
       }
       {cards.length > visible && (<ShowMoreButton onClick={handleMoreCards} />)}
     </section>

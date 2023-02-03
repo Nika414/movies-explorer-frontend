@@ -19,11 +19,6 @@ export default function MoviesCard({
     return `${hours}ч ${minutes}м`;
   }
 
-  function handleDelete() {
-    api.deleteSavedCards(card._id).then((res) => onLike(card.id, res._id));
-    onDelete(card._id);
-  }
-
   function handleLike() {
     if (!isLiked) {
       setIsLiked(true);
@@ -48,6 +43,15 @@ export default function MoviesCard({
       api.deleteSavedCards(card._id).then((res) => onLike(card.id, res._id));
     }
   }
+
+  function handleDelete() {
+    debugger;
+    api.deleteSavedCards(card._id).then((res) => {
+      console.log(res);
+    });
+    onDelete(card._id);
+  }
+
   return (
     <li className="card">
       <a
