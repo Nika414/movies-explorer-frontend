@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { getStorage } from '../../utils/functions';
 
 export default function FilterCheckbox({ onClick, savedMovies }) {
-  const [checked, setChecked] = useState(savedMovies ? JSON.parse(localStorage.getItem('saved-movies_checkbox')) || false : JSON.parse(localStorage.getItem('movies_checkbox')) || false);
+  const [checked, setChecked] = useState(savedMovies ? getStorage('saved-movies_checkbox') || false : getStorage('movies_checkbox') || false);
   function handleCheckBoxClick() {
     onClick(!checked);
     setChecked(!checked);

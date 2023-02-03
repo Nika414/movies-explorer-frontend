@@ -56,7 +56,19 @@
     cursor: pointer;
 }
 
+.form__button_inactive {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
 .form__error {
+    overflow: hidden;
     width: 100%;
     height: fit-content;
     font-style: normal;
@@ -68,4 +80,8 @@
     left: 0;
     top: 47px;
     margin-bottom: 13px;
+}
+
+.form__error_active {
+    overflow: visible;
 }

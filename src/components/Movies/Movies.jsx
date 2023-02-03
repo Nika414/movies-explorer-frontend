@@ -11,7 +11,10 @@ import MoviesApi from '../../utils/MoviesApi';
 import {
   options,
 } from '../../utils/constants';
-import { handleFilter, handleShortcutsFilter, renderCardlist } from '../../utils/functions';
+import {
+  handleFilter, handleShortcutsFilter, setStorage,
+} from '../../utils/functions';
+import Render from '../Render';
 
 export default function Movies() {
   const cardsLS = JSON.parse(localStorage.getItem('movies')) || [];
@@ -28,7 +31,7 @@ export default function Movies() {
       setIsLoading(true);
       api.getCards()
         .then((res) => {
-          localStorage.setItem('movies', JSON.stringify(res));
+          setStorage('movies', res);
           setCards(handleShortcutsFilter(handleFilter(res, false), checkbox));
         })
         .catch((err) => {
@@ -66,7 +69,7 @@ export default function Movies() {
       return item;
     });
     console.log(newCards);
-    localStorage.setItem('movies', JSON.stringify(newCards));
+    setStorage('movies', newCards);
     setCards(handleShortcutsFilter(handleFilter(newCards, false), checkbox));
   }
 
@@ -74,17 +77,15 @@ export default function Movies() {
     <section className="movies">
       <SearchForm onClick={handleSearch} />
       <FilterCheckbox onClick={handleShortcuts} />
-      {
-        renderCardlist(
-          isLoading,
-          cards,
-          isError,
-          onCardClick,
-          visible,
-          loadingFinished,
-          false,
-        )
-      }
+      <Render
+        isLoading={isLoading}
+        cards={cards}
+        isError={isError}
+        onCardClick={onCardClick}
+        visible={visible}
+        loadingFinished={loadingFinished}
+        savedMovies={false}
+      />
       {cards.length > visible && (<ShowMoreButton onClick={handleMoreCards} />)}
     </section>
   );

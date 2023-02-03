@@ -10,7 +10,7 @@ import MainApi from '../../utils/MainApi';
 export default function MoviesCard({
   savedMovies, card, onDelete, onLike,
 }) {
-  const api = new MainApi(options);
+  const api = new MainApi(options, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDkxNDg2ZmEzZGYxY2U0NTljOGI5MiIsImlhdCI6MTY3NTE3MzgzNiwiZXhwIjoxNjc1Nzc4NjM2fQ.ZzGd7YA5wu-aA5IRLFjTM6F09sJCmm5QmZ_NwyHNgQM');
   const [isLiked, setIsLiked] = useState(card.saved || false);
 
   function getTimeFromMins(mins) {
@@ -45,7 +45,6 @@ export default function MoviesCard({
   }
 
   function handleDelete() {
-    debugger;
     api.deleteSavedCards(card._id).then((res) => {
       console.log(res);
     });

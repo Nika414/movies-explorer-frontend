@@ -1,5 +1,3 @@
-import Preloader from '../components/Preloader/Preloader';
-import MoviesCardList from '../components/MoviesCardList/MoviesCardList';
 import { regExpEn, regExpRu } from './constants';
 
 function handleFilter(cards, savedMovies) {
@@ -25,32 +23,15 @@ function handleShortcutsFilter(cards, filterOn) {
   }
   return cards;
 }
-function renderCardlist(
-  isLoading,
-  cards,
-  isError,
-  onCardClick,
-  visible,
-  loadingFinished,
-  savedMovies,
-) {
-  if (isLoading) {
-    return <Preloader />;
-  } if (cards.length === 0 && loadingFinished) {
-    return (<span className="movies__error">Ничего не найдено</span>);
-  } return (
-    <MoviesCardList
-      savedMovies={savedMovies}
-      cards={cards}
-      isError={isError}
-      onCardClick={onCardClick}
-      visible={visible}
-    />
-  );
+
+function setStorage(name, items) {
+  localStorage.setItem(name, JSON.stringify(items));
 }
-function setStorage(name, cards) {
-  localStorage.setItem(name, JSON.stringify(cards));
+
+function getStorage(name) {
+  JSON.parse(localStorage.getItem(name));
 }
+
 export {
-  handleFilter, handleShortcutsFilter, renderCardlist, setStorage,
+  handleFilter, handleShortcutsFilter, setStorage, getStorage,
 };
