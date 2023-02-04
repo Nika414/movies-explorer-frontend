@@ -18,7 +18,7 @@ export default function Navigation({ loggedIn, location }) {
 
   return (
     <div>
-      {loggedIn && location !== routeName.main ? (
+      {loggedIn ? (
         <nav className={`navigation ${menuOpen ? 'navigation_opened' : ''}`}>
           <button onClick={closeMenu} type="button" className={`navigation__close-button ${menuOpen ? 'navigation__close-button_opened' : ''}`}>
             <img alt="Закрыть меню" src={closeButton} className="navigation__close-button-img" />

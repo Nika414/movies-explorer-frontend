@@ -8,23 +8,21 @@ export default function Auth({
   mainText,
   linkText,
   link,
-  onLogin,
-  isLoginSucceed,
   login,
-  onRegister,
-  isRegisterSucceed,
+  isSubmitFinished,
+  onSubmit,
+  isSubmitSucceed,
 }) {
   return (
     <section className="auth">
       <h3 className="auth__title">{mainText}</h3>
       <AuthForm
-        isRegisterSucceed={isRegisterSucceed}
+        isSubmitSucceed={isSubmitSucceed}
         login={login}
         buttonText={buttonText}
         selector={selector}
-        isLoginSucceed={isLoginSucceed}
-        onLogin={onLogin}
-        onRegister={onRegister}
+        onSubmit={onSubmit}
+        isSubmitFinished={isSubmitFinished}
       />
       <span className="auth__span">
         { spanText }

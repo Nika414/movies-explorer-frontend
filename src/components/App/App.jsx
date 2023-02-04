@@ -30,6 +30,8 @@ function App() {
   const [isLoginSucceed, setIsLoginSucceed] = useState(undefined);
   const [isRegisterSucceed, setIsRegisterSucceed] = useState(undefined);
   const [isChangingSucceed, setIsChangingSucceed] = useState(undefined);
+  const [isLoginFinished, setIsLoginFinished] = useState(undefined);
+  const [isRegisterFinished, setIsRegisterFinished] = useState(undefined);
   const location = useLocation();
   const isHeaderRequired = location.pathname !== routeName.pageNotFound;
   const isFooterRequired = (location.pathname === routeName.main || location.pathname === routeName.movies
@@ -47,6 +49,7 @@ function App() {
   }, [jwt]);
 
   function handleLogin(password, email) {
+    setIsLoginFinished(false);
     authApi.login(password, email).then((res) => res.json())
       .then((res) => {
         if (!res.token) {
@@ -56,20 +59,22 @@ function App() {
         localStorage.setItem('jwt', res.token);
         setIsLoginSucceed(true);
         setLoggedIn(true);
-        history.push('/movies');
+        history.push(routeName.movies);
       })
       .catch((error) => {
         setIsLoginSucceed(false);
         console.log(error);
-      });
+      })
+      .finally(() => setIsLoginFinished(true));
   }
   function handleLogout() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
-    history.push('/sign-in');
+    history.push(routeName.login);
   }
 
   function handleRegister(name, password, email) {
+    setIsRegisterFinished(false);
     authApi.register(name, password, email)
       .then((res) => {
         if (res.status === 200) {
@@ -79,10 +84,11 @@ function App() {
         }
         res.json();
       })
-      .catch((error) => {
-        console.log(error.code);
+      .catch((err) => {
+        console.log(err);
         setIsRegisterSucceed(false);
-      });
+      })
+      .finally(() => setIsRegisterFinished(true));
   }
 
   function handleProfileChange(data) {
@@ -101,10 +107,18 @@ function App() {
         {isHeaderRequired && (<Header loggedIn={loggedIn} location={location.pathname} />)}
         <Switch>
           <Route exact path={routeName.register}>
-            <Register onRegister={handleRegister} isRegisterSucceed={isRegisterSucceed} />
+            <Register
+              onSubmit={handleRegister}
+              isSubmitSucceed={isRegisterSucceed}
+              isSubmitFinished={isRegisterFinished}
+            />
           </Route>
           <Route exact path={routeName.login}>
-            <Login onLogin={handleLogin} isLoginSucceed={isLoginSucceed} />
+            <Login
+              onSubmit={handleLogin}
+              isSubmitSucceed={isLoginSucceed}
+              isSubmitFinished={isLoginFinished}
+            />
           </Route>
           <Route exact path={routeName.main}>
             <Main />

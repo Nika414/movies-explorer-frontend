@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import SearchForm from '../SearchForm/SearchForm';
 import MainApi from '../../utils/MainApi';
@@ -15,6 +15,7 @@ import {
   handleFilter, handleShortcutsFilter,
 } from '../../utils/functions';
 import Render from '../Render';
+import { CurrentUserContext } from '../CurrentUserContext';
 
 export default function SavedMovies() {
   const jwt = localStorage.getItem('jwt');
@@ -25,7 +26,8 @@ export default function SavedMovies() {
   const [isError, setIsError] = useState(false);
   const [visible, setVisible] = useState(4);
   const checkbox = JSON.parse(localStorage.getItem('saved-movies_checkbox'));
-
+  const contextValue = useContext(CurrentUserContext);
+  console.log(contextValue.currentUser);
   function handleShortcuts(filterOn) {
     setSavedCards(handleShortcutsFilter(handleFilter(savedCardsLS, true), filterOn));
   }

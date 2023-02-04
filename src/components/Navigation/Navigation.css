@@ -172,6 +172,10 @@
         margin-bottom: 24px;
     }
 
+    .navigation__button_registration {
+        margin-bottom: -24px;
+    }
+
     .navigation__wrapper_active-page {
         border-bottom: 2px solid var(--color-black);
     }

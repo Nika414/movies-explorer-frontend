@@ -4,12 +4,14 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function AuthForm({
-  buttonText, selector, onLogin, isLoginSucceed, login, onRegister, isRegisterSucceed,
+  buttonText, selector, login, onSubmit, isSubmitSucceed, isSubmitFinished,
 }) {
   const {
     register,
     reset,
-    formState: { errors, isValid, isDirty },
+    formState: {
+      errors, isValid, isDirty,
+    },
     handleSubmit,
   } = useForm({
     mode: 'onChange',
@@ -20,18 +22,17 @@ export default function AuthForm({
     reset({ email: '', password: '' });
   }, [reset]);
 
-  function onSubmit(data) {
+  function onFormSubmit(data) {
     if (login) {
-      onLogin(data.password, data.email);
+      onSubmit(data.password, data.email);
     } else {
-      onRegister(data.name, data.password, data.email);
-      console.log('register');
+      onSubmit(data.name, data.password, data.email);
     }
     reset({ keepValues: true });
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form" method="post">
+    <form onSubmit={handleSubmit(onFormSubmit)} className="form" method="post">
       {!login && (
       <label className="form__label" htmlFor="name">
         Имя
@@ -96,12 +97,16 @@ export default function AuthForm({
           {errors?.password?.message}
         </span>
       </label>
-      <span className={`form__error-submit ${isRegisterSucceed && 'form__error-submit_success'}`}>
-        {login && isLoginSucceed === false && !isDirty && 'Неправильный логин или пароль'}
-        {!login && isRegisterSucceed === true && 'Вы успешно зарегистрировались!'}
-        {!login && isRegisterSucceed === false && !isDirty && 'Произошла ошибка, попробуйте еще раз'}
+      <span className={`form__error-submit ${isSubmitSucceed && 'form__error-submit_success'}`}>
+        {login && isSubmitSucceed === false && !isDirty && 'Неправильный логин или пароль'}
+        {!login && isSubmitSucceed === true && 'Вы успешно зарегистрировались!'}
+        {!login && isSubmitSucceed === false && !isDirty && 'Произошла ошибка, попробуйте еще раз'}
       </span>
-      <button className={`form__button ${selector} ${isValid ? '' : 'form__button_inactive'}`} type="submit">
+      <button
+        className={`form__button ${selector} 
+      ${!isValid || isSubmitFinished === false ? 'form__button_inactive' : ''}`}
+        type="submit"
+      >
         {buttonText}
       </button>
     </form>
