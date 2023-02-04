@@ -31,7 +31,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid var(--color-gray-border);
     margin: 0;
     margin-bottom: 17px;
 }
@@ -49,6 +48,7 @@
     text-align: right;
     color: var(--color-black);
     border: none;
+    border-bottom: 1px solid var(--color-gray-border);
 }
 
 .profile__form-span {
@@ -80,6 +80,16 @@
     margin-top: 203px;
 }
 
+.profile__button_inactive {
+    background-color: #ffffff;
+    color: var(--color-gray-border);
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .profile__button_type_exit {
     font-weight: 500;
     font-size: 13px;
@@ -94,6 +104,7 @@
 }
 
 .profile__form-error {
+    display: none;
     width: 100%;
     height: fit-content;
     font-style: normal;
@@ -103,7 +114,20 @@
     color: var(--color-red-accent);
     position: absolute;
     left: 0;
-    top: 17px;
+    top: 20px;
+}
+
+.profile__form-error_active {
+    display: flex;
+}
+
+.profile__form-error-submit {
+    color: var(--color-red-accent);
+    padding-top: 50px;
+}
+
+.profile__form-error-submit_success {
+    color: #00FFCC;
 }
 
 @media screen and (max-width:768px) {

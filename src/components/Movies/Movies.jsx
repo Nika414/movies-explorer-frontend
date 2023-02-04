@@ -12,7 +12,7 @@ import {
   options,
 } from '../../utils/constants';
 import {
-  handleFilter, handleShortcutsFilter, setStorage,
+  handleFilter, handleShortcutsFilter,
 } from '../../utils/functions';
 import Render from '../Render';
 
@@ -31,7 +31,7 @@ export default function Movies() {
       setIsLoading(true);
       api.getCards()
         .then((res) => {
-          setStorage('movies', res);
+          localStorage.setItem('movies', JSON.stringify(res));
           setCards(handleShortcutsFilter(handleFilter(res, false), checkbox));
         })
         .catch((err) => {
@@ -58,6 +58,7 @@ export default function Movies() {
     setCards(handleShortcutsFilter(handleFilter(cardsLS, false), filterOn));
   }
   function onCardClick(id, newId) {
+    debugger;
     const newCards = cardsLS.map((item) => {
       if (item.id === id && !item.saved) {
         item._id = newId;
@@ -69,7 +70,7 @@ export default function Movies() {
       return item;
     });
     console.log(newCards);
-    setStorage('movies', newCards);
+    localStorage.setItem('movies', JSON.stringify(newCards));
     setCards(handleShortcutsFilter(handleFilter(newCards, false), checkbox));
   }
 

@@ -11,6 +11,7 @@
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
     "linebreak-style": "off",
+    "react/jsx-props-no-spreading": "off",
     "max-len": [
       "error",
       {

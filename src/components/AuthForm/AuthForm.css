@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
 }
 
 .form__label {
@@ -84,4 +85,13 @@
 
 .form__error_active {
     overflow: visible;
+}
+
+.form__error-submit {
+    color: var(--color-red-accent);
+    padding-top: 50px;
+}
+
+.form__error-submit_success {
+    color: #00FFCC;
 }

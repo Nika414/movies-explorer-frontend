@@ -10,7 +10,8 @@ import MainApi from '../../utils/MainApi';
 export default function MoviesCard({
   savedMovies, card, onDelete, onLike,
 }) {
-  const api = new MainApi(options, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDkxNDg2ZmEzZGYxY2U0NTljOGI5MiIsImlhdCI6MTY3NTE3MzgzNiwiZXhwIjoxNjc1Nzc4NjM2fQ.ZzGd7YA5wu-aA5IRLFjTM6F09sJCmm5QmZ_NwyHNgQM');
+  const jwt = localStorage.getItem('jwt');
+  const api = new MainApi(options, jwt);
   const [isLiked, setIsLiked] = useState(card.saved || false);
 
   function getTimeFromMins(mins) {

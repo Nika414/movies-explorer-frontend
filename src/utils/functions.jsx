@@ -24,14 +24,6 @@ function handleShortcutsFilter(cards, filterOn) {
   return cards;
 }
 
-function setStorage(name, items) {
-  localStorage.setItem(name, JSON.stringify(items));
-}
-
-function getStorage(name) {
-  JSON.parse(localStorage.getItem(name));
-}
-
 export {
-  handleFilter, handleShortcutsFilter, setStorage, getStorage,
+  handleFilter, handleShortcutsFilter,
 };

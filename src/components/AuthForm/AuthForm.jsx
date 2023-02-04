@@ -1,16 +1,15 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export default function AuthForm({
-  buttonText, selector, children, onLogin, isLoginSucceed,
+  buttonText, selector, onLogin, isLoginSucceed, login, onRegister, isRegisterSucceed,
 }) {
   const {
     register,
     reset,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isDirty },
     handleSubmit,
   } = useForm({
     mode: 'onChange',
@@ -22,12 +21,44 @@ export default function AuthForm({
   }, [reset]);
 
   function onSubmit(data) {
-    onLogin(data.password, data.email);
+    if (login) {
+      onLogin(data.password, data.email);
+    } else {
+      onRegister(data.name, data.password, data.email);
+      console.log('register');
+    }
+    reset({ keepValues: true });
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form" method="post">
-      {children}
+      {!login && (
+      <label className="form__label" htmlFor="name">
+        Имя
+        <input
+          {...register('name', {
+            required: 'Поле обязательно к заполнению',
+            minLength: {
+              value: 2,
+              message: 'Минимум 2 символа',
+            },
+            maxLength: {
+              value: 30,
+              message: 'Максимум 30 символов',
+            },
+          })}
+          className="form__input"
+          id="name"
+          type="text"
+        />
+        <span className={`form__error ${errors?.name && 'form__error_active'
+        }`}
+        >
+          {errors?.name?.message}
+
+        </span>
+      </label>
+      )}
       <label className="form__label" htmlFor="email">
         E-mail
         <input
@@ -62,11 +93,14 @@ export default function AuthForm({
         <span className={`form__error ${errors?.password && 'form__error_active'
         }`}
         >
-
-          {(errors?.password?.message) || (isLoginSucceed === false && 'Неправильный логин или пароль')}
-
+          {errors?.password?.message}
         </span>
       </label>
+      <span className={`form__error-submit ${isRegisterSucceed && 'form__error-submit_success'}`}>
+        {login && isLoginSucceed === false && !isDirty && 'Неправильный логин или пароль'}
+        {!login && isRegisterSucceed === true && 'Вы успешно зарегистрировались!'}
+        {!login && isRegisterSucceed === false && !isDirty && 'Произошла ошибка, попробуйте еще раз'}
+      </span>
       <button className={`form__button ${selector} ${isValid ? '' : 'form__button_inactive'}`} type="submit">
         {buttonText}
       </button>

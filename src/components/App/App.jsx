@@ -1,3 +1,5 @@
+/* eslint-disable no-debugger */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-console */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-unused-vars */
@@ -21,39 +23,75 @@ import MainApi from '../../utils/MainApi';
 import AuthApi from '../../utils/Auth';
 
 function App() {
+  const jwt = localStorage.getItem('jwt');
   const history = useHistory();
-  const [currentUser, setCurrentUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [isLoginSucceed, setIsLoginSucceed] = useState(true);
+  const [currentUser, setCurrentUser] = useState({ jwt });
+  const [loggedIn, setLoggedIn] = useState(currentUser.jwt && true);
+  const [isLoginSucceed, setIsLoginSucceed] = useState(undefined);
+  const [isRegisterSucceed, setIsRegisterSucceed] = useState(undefined);
+  const [isChangingSucceed, setIsChangingSucceed] = useState(undefined);
   const location = useLocation();
   const isHeaderRequired = location.pathname !== routeName.pageNotFound;
   const isFooterRequired = (location.pathname === routeName.main || location.pathname === routeName.movies
     || location.pathname === routeName.moviesSav);
 
-  const api = new MainApi(options, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDkxNDg2ZmEzZGYxY2U0NTljOGI5MiIsImlhdCI6MTY3NTE3MzgzNiwiZXhwIjoxNjc1Nzc4NjM2fQ.ZzGd7YA5wu-aA5IRLFjTM6F09sJCmm5QmZ_NwyHNgQM');
+  const api = new MainApi(options, jwt);
   const authApi = new AuthApi(options);
 
   useEffect(() => {
-    api.getCurrentUser().then((res) => {
-      setCurrentUser(res);
-    });
-  }, []);
+    if (jwt) {
+      api.getCurrentUser().then((res) => {
+        setCurrentUser({ ...currentUser, ...res });
+      });
+    }
+  }, [jwt]);
 
   function handleLogin(password, email) {
-    authApi.login(password, email).then((res) => {
-      if (!res.token) {
-        setIsLoginSucceed(false);
-        throw new Error('Missing jwt');
-      }
-      localStorage.setItem('jwt', res.token);
-      setIsLoginSucceed(true);
-      setLoggedIn(true);
-      history.push('/movies');
-    })
+    authApi.login(password, email).then((res) => res.json())
+      .then((res) => {
+        if (!res.token) {
+          setIsLoginSucceed(false);
+          throw new Error('Missing jwt');
+        }
+        localStorage.setItem('jwt', res.token);
+        setIsLoginSucceed(true);
+        setLoggedIn(true);
+        history.push('/movies');
+      })
       .catch((error) => {
         setIsLoginSucceed(false);
         console.log(error);
       });
+  }
+  function handleLogout() {
+    localStorage.removeItem('jwt');
+    setLoggedIn(false);
+    history.push('/sign-in');
+  }
+
+  function handleRegister(name, password, email) {
+    authApi.register(name, password, email)
+      .then((res) => {
+        if (res.status === 200) {
+          setIsRegisterSucceed(true);
+        } else {
+          setIsRegisterSucceed(false);
+        }
+        res.json();
+      })
+      .catch((error) => {
+        console.log(error.code);
+        setIsRegisterSucceed(false);
+      });
+  }
+
+  function handleProfileChange(data) {
+    api.changeProfile(data)
+      .then((res) => {
+        setIsChangingSucceed(true);
+        setCurrentUser({ ...currentUser, name: res.name, email: res.email });
+      })
+      .catch((err) => { setIsChangingSucceed(false); console.log(err); });
   }
 
   return (
@@ -63,7 +101,7 @@ function App() {
         {isHeaderRequired && (<Header loggedIn={loggedIn} location={location.pathname} />)}
         <Switch>
           <Route exact path={routeName.register}>
-            <Register />
+            <Register onRegister={handleRegister} isRegisterSucceed={isRegisterSucceed} />
           </Route>
           <Route exact path={routeName.login}>
             <Login onLogin={handleLogin} isLoginSucceed={isLoginSucceed} />
@@ -78,7 +116,11 @@ function App() {
             <SavedMovies />
           </ProtectedRoute>
           <ProtectedRoute exact path={routeName.profile} loggedIn={loggedIn}>
-            <Profile />
+            <Profile
+              onLogout={handleLogout}
+              onProfileChange={handleProfileChange}
+              isChangingSucceed={isChangingSucceed}
+            />
           </ProtectedRoute>
           <Route path={routeName.pageNotFound}>
             <PageNotFound />

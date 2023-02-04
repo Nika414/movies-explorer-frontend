@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default class AuthApi {
   constructor(options) {
     this._headers = {
@@ -7,17 +8,12 @@ export default class AuthApi {
     this._mainUrl = options.mainUrl;
   }
 
-  _handleResponse(res) {
-    if (res.ok) { return res.json(); }
-    throw new Error('Error occurred');
-  }
-
   register(name, password, email) {
     return fetch(`${this._mainUrl}signup`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({ name, password, email }),
-    }).then((res) => this._handleResponse(res));
+    });
   }
 
   login(password, email) {
@@ -25,6 +21,6 @@ export default class AuthApi {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({ password, email }),
-    }).then((res) => this._handleResponse(res));
+    });
   }
 }

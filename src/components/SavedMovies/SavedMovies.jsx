@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
@@ -11,18 +12,19 @@ import {
   options,
 } from '../../utils/constants';
 import {
-  handleFilter, handleShortcutsFilter, setStorage, getStorage,
+  handleFilter, handleShortcutsFilter,
 } from '../../utils/functions';
 import Render from '../Render';
 
 export default function SavedMovies() {
-  const api = new MainApi(options, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDkxNDg2ZmEzZGYxY2U0NTljOGI5MiIsImlhdCI6MTY3NTE3MzgzNiwiZXhwIjoxNjc1Nzc4NjM2fQ.ZzGd7YA5wu-aA5IRLFjTM6F09sJCmm5QmZ_NwyHNgQM');
+  const jwt = localStorage.getItem('jwt');
+  const api = new MainApi(options, jwt);
   const [savedCardsLS, setSavedCardsLS] = useState([]);
   const [savedCards, setSavedCards] = useState(savedCardsLS);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [visible, setVisible] = useState(4);
-  const checkbox = getStorage('saved-movies_checkbox');
+  const checkbox = JSON.parse(localStorage.getItem('saved-movies_checkbox'));
 
   function handleShortcuts(filterOn) {
     setSavedCards(handleShortcutsFilter(handleFilter(savedCardsLS, true), filterOn));
@@ -31,8 +33,8 @@ export default function SavedMovies() {
   useEffect(() => {
     setIsLoading(true);
     api.getSavedCards().then((res) => {
-      setStorage('saved__movies', res);
-      setSavedCardsLS(getStorage('saved__movies'));
+      localStorage.setItem('saved__movies', JSON.stringify(res));
+      setSavedCardsLS(JSON.parse(localStorage.getItem('saved__movies')));
       setSavedCards(handleShortcutsFilter(handleFilter(res, true), checkbox));
     }).catch((err) => { console.log(err); setIsError(true); })
       .finally(() => setIsLoading(false));
@@ -40,14 +42,14 @@ export default function SavedMovies() {
 
   function onDelete(cardId) {
     const newCards = savedCards.filter((item) => item._id !== cardId);
-    setStorage('saved__movies', newCards);
+    localStorage.setItem('saved__movies', JSON.stringify(newCards));
     setSavedCards(newCards);
-    const newMainCards = getStorage('movies').map((item) => {
+    const newMainCards = JSON.parse(localStorage.getItem('movies')).map((item) => {
       if (item._id === cardId && item.saved) {
         item.saved = false;
       } return item;
     });
-    setStorage('movies', newMainCards);
+    localStorage.setItem('movies', JSON.stringify(newMainCards));
   }
 
   function handleMoreCards() {

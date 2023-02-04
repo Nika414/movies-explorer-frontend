@@ -38,4 +38,12 @@ export default class MainApi {
       headers: this._headers,
     }).then((res) => this._handleResponse(res));
   }
+
+  changeProfile(name, email) {
+    return fetch(`${this._mainUrl}users/me`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify(name, email),
+    }).then((res) => this._handleResponse(res));
+  }
 }
