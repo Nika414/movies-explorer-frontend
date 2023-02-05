@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 

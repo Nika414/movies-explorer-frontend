@@ -66,7 +66,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+}
 
 .form__error {
     overflow: hidden;
@@ -93,5 +93,5 @@
 }
 
 .form__error-submit_success {
-    color: #00FFCC;
+    color: var(--color-green-accent);
 }

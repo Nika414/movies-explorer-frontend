@@ -1,7 +1,7 @@
 import { regExpEn, regExpRu } from './constants';
 
 function handleFilter(cards, savedMovies) {
-  const query = savedMovies ? localStorage.getItem('saved-movies_query') : localStorage.getItem('query') || '';
+  const query = savedMovies ? localStorage.getItem('saved-movies_query') : localStorage.getItem('query');
   return cards.filter((item) => {
     let result;
     if (!query) {

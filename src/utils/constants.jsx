@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const routeName = {
   main: '/',
   pageNotFound: '/404',
@@ -15,8 +14,8 @@ const options = {
   mainUrl: 'https://api.mmovies-explorer.nomoredomains.club/',
 };
 
-const regExpRu = /[а-яА-ЯЁё]/g;
-const regExpEn = /[a-z]/g;
+const regExpRu = /[а-яА-ЯЁё\s]/g;
+const regExpEn = /[\w]/g;
 
 export {
   routeName, options, regExpRu, regExpEn,

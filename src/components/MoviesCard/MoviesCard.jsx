@@ -1,6 +1,3 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import { useState } from 'react';
 import CardLike from '../CardLike';
 import CardDelete from '../CardDelete';
@@ -35,20 +32,22 @@ export default function MoviesCard({
         nameRU: card.nameRU,
         nameEN: card.nameEN,
         trailer: card.trailerLink,
-      }).then((res) => {
-        onLike(card.id, res._id);
-        console.log(res);
-      }).catch((err) => console.log(err));
+      })
+        .then((res) => {
+          onLike(card.id, res._id);
+        })
+        .catch((err) => console.log(err));
     } else {
       setIsLiked(false);
-      api.deleteSavedCards(card._id).then((res) => onLike(card.id, res._id));
+      api.deleteSavedCards(card._id)
+        .then((res) => onLike(card.id, res._id))
+        .catch((err) => console.log(err));
     }
   }
 
   function handleDelete() {
-    api.deleteSavedCards(card._id).then((res) => {
-      console.log(res);
-    });
+    api.deleteSavedCards(card._id)
+      .catch((err) => console.log(err));
     onDelete(card._id);
   }
 

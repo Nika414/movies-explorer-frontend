@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-debugger */
 import { useState } from 'react';
 
 export default function FilterCheckbox({ onClick, savedMovies }) {

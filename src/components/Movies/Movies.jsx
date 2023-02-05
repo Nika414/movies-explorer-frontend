@@ -1,8 +1,3 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-console */
 import { useState, useEffect } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import SearchForm from '../SearchForm/SearchForm';
@@ -51,25 +46,28 @@ export default function Movies() {
   }, []);
 
   function handleMoreCards() {
-    setVisible((prevValue) => prevValue + 4);
+    const windowWidth = document.documentElement.clientWidth;
+    if (windowWidth < 768) {
+      setVisible((prevValue) => prevValue + 5);
+    } else { setVisible((prevValue) => prevValue + 4); }
   }
 
   function handleShortcuts(filterOn) {
     setCards(handleShortcutsFilter(handleFilter(cardsLS, false), filterOn));
   }
+
   function onCardClick(id, newId) {
-    debugger;
     const newCards = cardsLS.map((item) => {
       if (item.id === id && !item.saved) {
         item._id = newId;
         item.saved = true;
-      } else {
+        return item;
+      } if (item.id === id && item.saved) {
         item._id = newId;
         item.saved = false;
-      }
-      return item;
+        return item;
+      } return item;
     });
-    console.log(newCards);
     localStorage.setItem('movies', JSON.stringify(newCards));
     setCards(handleShortcutsFilter(handleFilter(newCards, false), checkbox));
   }

@@ -1,8 +1,3 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import {
   Switch, Route, useLocation, Redirect, useHistory,
@@ -61,9 +56,9 @@ function App() {
         setLoggedIn(true);
         history.push(routeName.movies);
       })
-      .catch((error) => {
+      .catch((err) => {
         setIsLoginSucceed(false);
-        console.log(error);
+        console.log(err);
       })
       .finally(() => setIsLoginFinished(true));
   }
@@ -97,7 +92,10 @@ function App() {
         setIsChangingSucceed(true);
         setCurrentUser({ ...currentUser, name: res.name, email: res.email });
       })
-      .catch((err) => { setIsChangingSucceed(false); console.log(err); });
+      .catch((err) => {
+        setIsChangingSucceed(false);
+        console.log(err);
+      });
   }
 
   return (

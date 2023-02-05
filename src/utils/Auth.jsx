@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export default class AuthApi {
   constructor(options) {
     this._headers = {

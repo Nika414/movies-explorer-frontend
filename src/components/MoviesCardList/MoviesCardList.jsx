@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-console */
 import MoviesCard from '../MoviesCard/MoviesCard';
 
 export default function MoviesCardList({

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export default class MoviesApi {
   constructor(options) {
     this._beatfilmUrl = options.beatfilmUrl;

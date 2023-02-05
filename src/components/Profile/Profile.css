@@ -127,7 +127,7 @@
 }
 
 .profile__form-error-submit_success {
-    color: #00FFCC;
+    color: var(--color-green-accent);
 }
 
 @media screen and (max-width:768px) {

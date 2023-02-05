@@ -1,9 +1,4 @@
-/* eslint-disable no-debugger */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
-
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import SearchForm from '../SearchForm/SearchForm';
 import MainApi from '../../utils/MainApi';
@@ -15,7 +10,6 @@ import {
   handleFilter, handleShortcutsFilter,
 } from '../../utils/functions';
 import Render from '../Render';
-import { CurrentUserContext } from '../CurrentUserContext';
 
 export default function SavedMovies() {
   const jwt = localStorage.getItem('jwt');
@@ -26,19 +20,20 @@ export default function SavedMovies() {
   const [isError, setIsError] = useState(false);
   const [visible, setVisible] = useState(4);
   const checkbox = JSON.parse(localStorage.getItem('saved-movies_checkbox'));
-  const contextValue = useContext(CurrentUserContext);
-  console.log(contextValue.currentUser);
+
   function handleShortcuts(filterOn) {
     setSavedCards(handleShortcutsFilter(handleFilter(savedCardsLS, true), filterOn));
   }
 
   useEffect(() => {
     setIsLoading(true);
-    api.getSavedCards().then((res) => {
-      localStorage.setItem('saved__movies', JSON.stringify(res));
-      setSavedCardsLS(JSON.parse(localStorage.getItem('saved__movies')));
-      setSavedCards(handleShortcutsFilter(handleFilter(res, true), checkbox));
-    }).catch((err) => { console.log(err); setIsError(true); })
+    api.getSavedCards()
+      .then((res) => {
+        localStorage.setItem('saved__movies', JSON.stringify(res));
+        setSavedCardsLS(JSON.parse(localStorage.getItem('saved__movies')));
+        setSavedCards(handleShortcutsFilter(handleFilter(res, true), checkbox));
+      })
+      .catch((err) => { console.log(err); setIsError(true); })
       .finally(() => setIsLoading(false));
   }, []);
 

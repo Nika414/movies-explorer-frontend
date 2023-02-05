@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-props-no-spreading */
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { CurrentUserContext } from '../CurrentUserContext';

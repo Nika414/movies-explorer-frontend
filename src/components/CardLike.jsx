@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 export default function CardLike({ onClick, isLiked }) {
   function handleLike() {
     onClick();
