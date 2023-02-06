@@ -2,7 +2,9 @@
 
 ### [Ссылка на макет](https://disk.yandex.ru/d/_fmlnmdYqZXtug)
 
-### [Ссылка на ПР](https://github.com/Nika414/movies-explorer-frontend/pull/10)
+### [Ссылка на пулл риквест](https://github.com/Nika414/movies-explorer-frontend/pull/10)
+
+### [Ссылка на сайт](https://mmovies-explorer.nomoredomains.club/)
 ## Установка и запуск
 ### Требования:
 
