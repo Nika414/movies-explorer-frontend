@@ -4,7 +4,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MainApi from '../../utils/MainApi';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 import {
-  options,
+  options, cardsAmount,
 } from '../../utils/constants';
 import {
   handleFilter, handleShortcutsFilter,
@@ -18,7 +18,7 @@ export default function SavedMovies() {
   const [savedCards, setSavedCards] = useState(savedCardsLS);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [visible, setVisible] = useState(4);
+  const [visible, setVisible] = useState(cardsAmount);
   const checkbox = JSON.parse(localStorage.getItem('saved-movies_checkbox'));
 
   function handleShortcuts(filterOn) {
@@ -31,7 +31,7 @@ export default function SavedMovies() {
       .then((res) => {
         localStorage.setItem('saved__movies', JSON.stringify(res));
         setSavedCardsLS(JSON.parse(localStorage.getItem('saved__movies')));
-        setSavedCards(handleShortcutsFilter(handleFilter(res, true), checkbox));
+        setSavedCards(JSON.parse(localStorage.getItem('saved__movies')));
       })
       .catch((err) => { console.log(err); setIsError(true); })
       .finally(() => setIsLoading(false));
@@ -50,7 +50,7 @@ export default function SavedMovies() {
   }
 
   function handleMoreCards() {
-    setVisible((prevValue) => prevValue + 4);
+    setVisible((prevValue) => prevValue + cardsAmount);
   }
 
   function handleSearch() {

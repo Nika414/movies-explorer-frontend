@@ -56,6 +56,8 @@ export default function MoviesCard({
       <a
         className="card__link"
         href={savedMovies ? card.trailer : card.trailerLink}
+        target="_blank"
+        rel="noreferrer"
       >
         <img className="card__img" src={`${savedMovies ? card.image : `${options.baseUrl}${card.image.url}`}`} alt={card.nameRU} />
       </a>

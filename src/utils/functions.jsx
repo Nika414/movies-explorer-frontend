@@ -1,4 +1,4 @@
-import { regExpEn, regExpRu } from './constants';
+import { regExpEn, regExpRu, shortcutsTiming } from './constants';
 
 function handleFilter(cards, savedMovies) {
   const query = savedMovies ? localStorage.getItem('saved-movies_query') : localStorage.getItem('query');
@@ -19,7 +19,7 @@ function handleFilter(cards, savedMovies) {
 
 function handleShortcutsFilter(cards, filterOn) {
   if (filterOn) {
-    return cards.filter((item) => item.duration < 40);
+    return cards.filter((item) => item.duration < shortcutsTiming);
   }
   return cards;
 }

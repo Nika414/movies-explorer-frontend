@@ -63,9 +63,13 @@ function App() {
       .finally(() => setIsLoginFinished(true));
   }
   function handleLogout() {
-    localStorage.removeItem('jwt');
     setLoggedIn(false);
-    history.push(routeName.login);
+    setIsLoginFinished(undefined);
+    setIsRegisterFinished(undefined);
+    setIsLoginSucceed(undefined);
+    setIsRegisterSucceed(undefined);
+    localStorage.clear();
+    history.push(routeName.main);
   }
 
   function handleRegister(name, password, email) {
@@ -74,12 +78,13 @@ function App() {
       .then((res) => {
         if (res.status === 200) {
           setIsRegisterSucceed(true);
+          handleLogin(password, email);
+          history.push(routeName.movies);
         } else {
           setIsRegisterSucceed(false);
         }
-        res.json();
-      })
-      .catch((err) => {
+        return res.json();
+      }).catch((err) => {
         console.log(err);
         setIsRegisterSucceed(false);
       })

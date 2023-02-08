@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function SearchForm({ onClick, savedMovies }) {
-  const [query, setQuery] = useState(savedMovies ? localStorage.getItem('saved-movies_query') || '' : localStorage.getItem('query') || '');
+  const [query, setQuery] = useState(savedMovies ? '' : localStorage.getItem('query') || '');
 
   function handleSearch(e) {
     e.preventDefault();
