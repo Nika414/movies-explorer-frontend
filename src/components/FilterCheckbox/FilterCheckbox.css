@@ -24,11 +24,11 @@
     color: var(--color-black);
 }
 
-.filter-checkbox__input:checked+.filter-checkbox__customized-checkbox {
-    background: #2BE080;
+.filter-checkbox__input_checked+.filter-checkbox__customized-checkbox {
+    background: var(--color-pink);
 }
 
-.filter-checkbox__input:checked+.filter-checkbox__customized-checkbox::after {
+.filter-checkbox__input_checked+.filter-checkbox__customized-checkbox::after {
     left: calc(100% - 2px);
     transform: translateX(-100%);
 }

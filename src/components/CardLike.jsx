@@ -1,9 +1,6 @@
-import { useState } from 'react';
-
-export default function CardLike() {
-  const [isLiked, setIsLiked] = useState(false);
+export default function CardLike({ onClick, isLiked }) {
   function handleLike() {
-    setIsLiked(!isLiked);
+    onClick();
   }
 
   return (

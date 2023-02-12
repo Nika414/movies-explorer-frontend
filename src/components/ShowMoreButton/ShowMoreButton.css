@@ -1,6 +1,7 @@
 .show-more-button {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .show-more-button__button {
@@ -24,5 +25,5 @@
 @media screen and (max-width:768px) {
     .show-more-button__button {
         width: 41.7%;
-    } 
+    }
 }

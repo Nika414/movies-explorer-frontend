@@ -102,7 +102,7 @@
         top: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 2;
+        z-index: 10;
         height: 100vh;
         width: 100%;
     }
@@ -170,6 +170,10 @@
     .navigation__wrapper {
         padding-bottom: 4px;
         margin-bottom: 24px;
+    }
+
+    .navigation__button_registration {
+        margin-bottom: -24px;
     }
 
     .navigation__wrapper_active-page {

@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-vars */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
-  Switch, Route, useLocation, Redirect,
+  Switch, Route, useLocation, Redirect, useHistory,
 } from 'react-router-dom';
+import { CurrentUserContext } from '../CurrentUserContext';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
@@ -13,47 +13,142 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
 import PageNotFound from '../PageNotFound/PageNotFound';
-import { routeName } from '../../utils/constants';
+import { options, routeName } from '../../utils/constants';
+import MainApi from '../../utils/MainApi';
+import AuthApi from '../../utils/Auth';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const jwt = localStorage.getItem('jwt');
+  const history = useHistory();
+  const [currentUser, setCurrentUser] = useState({ jwt });
+  const [loggedIn, setLoggedIn] = useState(currentUser.jwt && true);
+  const [isLoginSucceed, setIsLoginSucceed] = useState(undefined);
+  const [isRegisterSucceed, setIsRegisterSucceed] = useState(undefined);
+  const [isChangingSucceed, setIsChangingSucceed] = useState(undefined);
+  const [isLoginFinished, setIsLoginFinished] = useState(undefined);
+  const [isRegisterFinished, setIsRegisterFinished] = useState(undefined);
   const location = useLocation();
   const isHeaderRequired = location.pathname !== routeName.pageNotFound;
   const isFooterRequired = (location.pathname === routeName.main || location.pathname === routeName.movies
     || location.pathname === routeName.moviesSav);
 
+  const api = new MainApi(options, jwt);
+  const authApi = new AuthApi(options);
+
+  useEffect(() => {
+    if (jwt) {
+      api.getCurrentUser().then((res) => {
+        setCurrentUser({ ...currentUser, ...res });
+      });
+    }
+  }, [jwt]);
+
+  function handleLogin(password, email) {
+    setIsLoginFinished(false);
+    authApi.login(password, email).then((res) => res.json())
+      .then((res) => {
+        if (!res.token) {
+          setIsLoginSucceed(false);
+          throw new Error('Missing jwt');
+        }
+        localStorage.setItem('jwt', res.token);
+        setIsLoginSucceed(true);
+        setLoggedIn(true);
+        history.push(routeName.movies);
+      })
+      .catch((err) => {
+        setIsLoginSucceed(false);
+        console.log(err);
+      })
+      .finally(() => setIsLoginFinished(true));
+  }
+  function handleLogout() {
+    setLoggedIn(false);
+    setIsLoginFinished(undefined);
+    setIsRegisterFinished(undefined);
+    setIsLoginSucceed(undefined);
+    setIsRegisterSucceed(undefined);
+    localStorage.clear();
+    history.push(routeName.main);
+  }
+
+  function handleRegister(name, password, email) {
+    setIsRegisterFinished(false);
+    authApi.register(name, password, email)
+      .then((res) => {
+        if (res.status === 200) {
+          setIsRegisterSucceed(true);
+          handleLogin(password, email);
+          history.push(routeName.movies);
+        } else {
+          setIsRegisterSucceed(false);
+        }
+        return res.json();
+      }).catch((err) => {
+        console.log(err);
+        setIsRegisterSucceed(false);
+      })
+      .finally(() => setIsRegisterFinished(true));
+  }
+
+  function handleProfileChange(data) {
+    api.changeProfile(data)
+      .then((res) => {
+        setIsChangingSucceed(true);
+        setCurrentUser({ ...currentUser, name: res.name, email: res.email });
+      })
+      .catch((err) => {
+        setIsChangingSucceed(false);
+        console.log(err);
+      });
+  }
+
   return (
-    <div className="App">
-      {' '}
-      {isHeaderRequired && (<Header loggedIn={loggedIn} location={location.pathname} />)}
-      <Switch>
-        <Route exact path={routeName.register}>
-          <Register />
-        </Route>
-        <Route exact path={routeName.login}>
-          <Login />
-        </Route>
-        <Route exact path={routeName.main}>
-          <Main />
-        </Route>
-        <ProtectedRoute exact path={routeName.movies} loggedIn={loggedIn}>
-          <Movies />
-        </ProtectedRoute>
-        <ProtectedRoute exact path={routeName.moviesSav} loggedIn={loggedIn}>
-          <SavedMovies />
-        </ProtectedRoute>
-        <ProtectedRoute exact path={routeName.profile} loggedIn={loggedIn}>
-          <Profile />
-        </ProtectedRoute>
-        <Route path={routeName.pageNotFound}>
-          <PageNotFound />
-        </Route>
-        <Route path="*">
-          <Redirect to={routeName.pageNotFound} />
-        </Route>
-      </Switch>
-      {(isFooterRequired) && (<Footer />)}
-    </div>
+    <CurrentUserContext.Provider value={{ currentUser }}>
+      <div className="App">
+        {' '}
+        {isHeaderRequired && (<Header loggedIn={loggedIn} location={location.pathname} />)}
+        <Switch>
+          <Route exact path={routeName.register}>
+            <Register
+              onSubmit={handleRegister}
+              isSubmitSucceed={isRegisterSucceed}
+              isSubmitFinished={isRegisterFinished}
+            />
+          </Route>
+          <Route exact path={routeName.login}>
+            <Login
+              onSubmit={handleLogin}
+              isSubmitSucceed={isLoginSucceed}
+              isSubmitFinished={isLoginFinished}
+            />
+          </Route>
+          <Route exact path={routeName.main}>
+            <Main />
+          </Route>
+          <ProtectedRoute exact path={routeName.movies} loggedIn={loggedIn}>
+            <Movies />
+          </ProtectedRoute>
+          <ProtectedRoute exact path={routeName.moviesSav} loggedIn={loggedIn}>
+            <SavedMovies />
+          </ProtectedRoute>
+          <ProtectedRoute exact path={routeName.profile} loggedIn={loggedIn}>
+            <Profile
+              onLogout={handleLogout}
+              onProfileChange={handleProfileChange}
+              isChangingSucceed={isChangingSucceed}
+            />
+          </ProtectedRoute>
+          <Route path={routeName.pageNotFound}>
+            <PageNotFound />
+          </Route>
+          <Route path="*">
+            <Redirect to={routeName.pageNotFound} />
+          </Route>
+        </Switch>
+        {(isFooterRequired) && (<Footer />)}
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

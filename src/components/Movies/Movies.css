@@ -1,0 +1,20 @@
+.movies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.movies__error {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--color-red-accent);
+    width: 60%;
+    padding: 0;
+    margin-top: 50px;
+    text-align: center;
+}

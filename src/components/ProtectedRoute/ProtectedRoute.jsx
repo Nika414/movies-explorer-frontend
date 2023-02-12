@@ -4,7 +4,7 @@ import { routeName } from '../../utils/constants';
 
 const ProtectedRoute = ({ children, path, loggedIn }) => (
   <Route path={path}>
-    {() => (loggedIn ? children : <Redirect to={routeName.login} />)}
+    {() => (loggedIn ? children : <Redirect to={routeName.main} />)}
   </Route>
 );
 

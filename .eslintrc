@@ -11,6 +11,7 @@
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
     "linebreak-style": "off",
+    "react/jsx-props-no-spreading": "off",
     "max-len": [
       "error",
       {
@@ -22,15 +23,9 @@
         "ignoreTemplateLiterals": true
       }
     ],
+    "react/jsx-no-constructed-context-values": "off",
     "react/jsx-no-bind": "off",
-    "no-console": [
-      "error",
-      {
-        "allow": [
-          "error"
-        ]
-      }
-    ]
+    "no-console": "off"
   },
   "env": {
     "browser": true,

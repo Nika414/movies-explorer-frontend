@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    align-items: center;
 }
 
 .form__label {
@@ -56,7 +57,19 @@
     cursor: pointer;
 }
 
+.form__button_inactive {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .form__error {
+    overflow: hidden;
     width: 100%;
     height: fit-content;
     font-style: normal;
@@ -68,4 +81,17 @@
     left: 0;
     top: 47px;
     margin-bottom: 13px;
+}
+
+.form__error_active {
+    overflow: visible;
+}
+
+.form__error-submit {
+    color: var(--color-red-accent);
+    padding-top: 50px;
+}
+
+.form__error-submit_success {
+    color: var(--color-green-accent);
 }
